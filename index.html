@@ -105,7 +105,7 @@
   .topo-grade { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 1.5rem; padding-block: .85rem; }
   .marca { display: inline-flex; align-items: center; text-decoration: none; line-height: 0; }
   .marca img { width: auto; height: clamp(62px, 11vw, 96px); }
-  .rodape .marca img { height: clamp(96px, 16vw, 124px); }
+  .rodape .marca img { height: 52px; }
   .menu { display: flex; flex-wrap: wrap; gap: .25rem 1.4rem; align-items: center; }
   .menu a { color: var(--tinta); text-decoration: none; padding: .55rem 0; font-weight: 600; }
   .menu a:hover { color: var(--anil); text-decoration: underline; }
@@ -278,15 +278,15 @@
   @media (max-width: 820px) { .contato-grade { grid-template-columns: minmax(0, 1fr); } .mapa { min-height: 280px; } }
 
   /* ---------- rodape ---------- */
-  .rodape { background: var(--branco); border-top: 1px solid var(--linha); color: var(--tinta-2); padding-block: 2.5rem; font-size: 1rem; overflow-wrap: anywhere; }
-  .rodape-grade { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem 3rem; }
+  .rodape { background: var(--branco); border-top: 1px solid var(--linha); color: var(--tinta-2); padding-block: 1.4rem; font-size: .92rem; overflow-wrap: anywhere; }
+  .rodape-grade { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem 3rem; }
   .rodape-grade > * { min-width: 0; max-width: 100%; }
-  .rodape-esq { display: grid; gap: .8rem; justify-items: start; }
-  .rodape-dir { display: grid; gap: .4rem; justify-items: end; text-align: right; }
+  .rodape-esq { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.5rem; }
+  .rodape-dir { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: .25rem 1.5rem; text-align: right; }
   .redes { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; justify-content: flex-end; }
   .redes a { display: inline-flex; align-items: center; gap: .45rem; min-height: 44px; color: var(--tinta); font-weight: 600; }
   .redes svg { width: 1.35rem; height: 1.35rem; flex: none; }
-  @media (max-width: 700px) { .rodape-grade { flex-direction: column; align-items: center; text-align: center; } .rodape-esq, .rodape-dir { justify-items: center; text-align: center; } .redes { justify-content: center; } }
+  @media (max-width: 700px) { .rodape-grade { flex-direction: column; align-items: center; text-align: center; } .rodape-esq, .rodape-dir { justify-content: center; text-align: center; } .redes { justify-content: center; } }
 
   /* ---------- WhatsApp flutuante (so no computador; no celular a barra de baixo faz isso) ---------- */
   .zap-flutuante { display: none; }
@@ -494,8 +494,8 @@
 <footer class="rodape">
   <div class="envoltorio rodape-grade">
     <div class="rodape-esq">
-      <a class="marca" href="#"><img src="img/logo.webp" width="420" height="291" loading="lazy" alt="Academia Espaço Fitness: sua saúde em 1º lugar. Voltar ao topo"></a>
-      <p>© 2026 Espaço Fitness Academia. Todos os direitos reservados.</p>
+      <a class="marca" href="#"><img src="img/logo-topo.webp" width="380" height="226" loading="lazy" alt="Academia Espaço Fitness. Voltar ao topo"></a>
+      <p>© 2026 Espaço Fitness Academia</p>
     </div>
     <div class="rodape-dir">
       <div class="redes">
@@ -696,7 +696,8 @@ $("#form-exp").addEventListener("submit", (e) => e.preventDefault());
 const flutuante = $("#zap-flutuante");
 flutuante.href = zap("Olá! Vim pelo site da Espaço Fitness e quero mais informações.");
 function mostrarFlutuante() {
-  const passou = $(".abertura").getBoundingClientRect().bottom < 0;
+  /* aparece depois da abertura e sai quando o rodape entra na tela (pra nao cobrir o CNPJ) */
+  const passou = $(".abertura").getBoundingClientRect().bottom < 0 && $(".rodape").getBoundingClientRect().top > innerHeight;
   flutuante.classList.toggle("visivel", passou);
   flutuante.tabIndex = passou ? 0 : -1;   /* escondido nao recebe foco do teclado */
 }
