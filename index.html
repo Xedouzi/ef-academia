@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="only light">
 <meta name="theme-color" content="#FFFFFF">
 <title>Espaço Fitness Academia | Musculação e aulas no Centro de Cravinhos, SP</title>
-<meta name="description" content="Academia no Centro de Cravinhos: musculação, bike, funcional, ritmos e mais. Aberta das 5h às 22h. Aceita Wellhub e TotalPass. Rua Saldanha Marinho, 274.">
+<meta name="description" content="Academia no Centro de Cravinhos: musculação, spinning, dança, jiu-jítsu e mais. Aberta das 5h às 22h. Aceita Wellhub e TotalPass. Rua Saldanha Marinho, 274.">
 <!-- DEMO: remover a linha abaixo quando publicar no dominio definitivo do cliente -->
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Crect%20width%3D%2732%27%20height%3D%2732%27%20fill%3D%27%23422679%27%2F%3E%3Ctext%20x%3D%2716%27%20y%3D%2722%27%20font-family%3D%27Arial%27%20font-weight%3D%27800%27%20font-size%3D%2715%27%20fill%3D%27white%27%20text-anchor%3D%27middle%27%3EEF%3C%2Ftext%3E%3C%2Fsvg%3E">
@@ -178,13 +178,28 @@
   @media (prefers-reduced-motion: reduce) { .barras .valor, .dias button { transition: none; } }
   .so-leitor { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
+  /* ---------- horario das aulas ---------- */
+  .aulas { list-style: none; margin: 1.5rem 0 0; padding: 0 clamp(1rem, 3vw, 2rem); background: var(--branco); border: 1px solid var(--linha); border-radius: 16px; }
+  .aula { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr) auto; gap: .5rem 1.5rem; align-items: center; padding: 1.1rem 0; border-bottom: 1px solid var(--linha); }
+  .aula:last-child { border-bottom: 0; }
+  .aula-hora { font: 900 2.1rem/1 var(--display); color: var(--anil); font-variant-numeric: tabular-nums; }
+  .aula-nome { display: grid; gap: .15rem; min-width: 0; }
+  .aula-nome strong { font: 800 1.5rem/1.1 var(--display); }
+  .aula-nome span { color: var(--tinta-2); font-size: 1rem; }
+  .aula .btn { min-height: 46px; padding: .55rem 1.1rem; font-size: 1rem; }
+  .aulas-vazio { padding: 1.5rem 0; color: var(--tinta-2); }
+  @media (max-width: 600px) {
+    .aula { grid-template-columns: auto minmax(0, 1fr); }
+    .aula .btn { grid-column: 1 / -1; }
+  }
+
   /* ---------- modalidades: quadro de academia ---------- */
   .quadro { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 0 clamp(1.5rem, 4vw, 3.5rem); border-top: 1.5px solid var(--linha-forte); }
   .quadro li { display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; gap: .3rem; padding: 1.1rem 0; border-bottom: 1px solid var(--linha); }
   .quadro h3 { font-size: clamp(1.8rem, 1.5rem + 1vw, 2.2rem); font-weight: 900; }
   .quadro p { color: var(--tinta-2); }
   .quadro .confirmar h3 { color: var(--tinta-2); }
-  .grade-aulas { margin-top: 2rem; display: grid; gap: .75rem; max-width: 46rem; }
+  .mod-confirmar { margin-top: 1.5rem; }
   .modalidades-grade { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "f1 t1" "t2 f2"; gap: clamp(1.5rem, 3vw, 2.5rem) clamp(1.75rem, 5vw, 4rem); }
   .mod-f1 { grid-area: f1; } .mod-t1 { grid-area: t1; } .mod-t2 { grid-area: t2; } .mod-f2 { grid-area: f2; }
   .mod-foto { position: relative; min-height: 22rem; border-radius: 16px; overflow: hidden; background: var(--linha); }
@@ -214,7 +229,7 @@
   .comodidades li::before { content: ""; width: 1.4rem; height: 1.4rem; flex: none; border-radius: 50%; background: var(--lima) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%232E1B57' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round' d='m6 12.5 4 4 8-9'/%3E%3C/svg%3E") center / 70% no-repeat; }
 
   /* ---------- aula experimental: passos a esquerda, conversa do WhatsApp a direita ---------- */
-  .experimental { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(1.75rem, 5vw, 4.5rem); align-items: center; }
+  .experimental { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(1.75rem, 5vw, 4.5rem); align-items: start; }
   .passos { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.75rem; }
   .escolha { border: 0; margin: 0; padding: 0; min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: .8rem; }
   .escolha legend { display: grid; grid-template-columns: auto minmax(0, 1fr); width: 100%; align-items: center; gap: .7rem; font: 800 1.6rem/1.1 var(--display); color: var(--tinta); margin-bottom: .8rem; padding: 0; }
@@ -241,7 +256,7 @@
   .conversa-acao { display: flex; align-items: center; gap: .8rem; padding: 1rem; border-top: 1px solid var(--linha); }
   .conversa-acao .btn { flex: 1 1 auto; min-width: 0; }
   /* wellhub */
-  .faixa-wellhub { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.5rem; margin-top: clamp(2rem, 5vw, 3.5rem); padding: 1.1rem clamp(1rem, 3vw, 1.5rem); background: var(--nevoa); border-radius: var(--raio); }
+  .faixa-wellhub { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.5rem; margin-top: clamp(2rem, 5vw, 3.5rem); padding: 1.1rem clamp(1rem, 3vw, 1.5rem); background: var(--branco); border-radius: var(--raio); }
   .faixa-wellhub h3 { font-size: 1.5rem; color: var(--anil); }
   .faixa-wellhub p { flex: 1 1 20rem; min-width: 0; }
   @media (max-width: 860px) { .experimental { grid-template-columns: minmax(0, 1fr); } }
@@ -292,6 +307,7 @@
     <nav class="menu" aria-label="Principal">
       <a href="#movimento">Melhores horários</a>
       <a href="#modalidades">Modalidades</a>
+      <a href="#aulas">Aulas</a>
       <a href="#estrutura">Estrutura</a>
       <a href="#contato">Contato</a>
       <a class="menu-tel" href="tel:+551639513660">(16) 3951-3660</a>
@@ -303,7 +319,7 @@
   <img class="abertura-fundo" src="img/sala-hexagonos.webp" srcset="img/sala-hexagonos.webp 1400w, img/sala-hexagonos-grande.webp 2200w" sizes="100vw" width="1400" height="1050" alt="Sala de musculação da Espaço Fitness com luminárias hexagonais de LED, parede de tijolinho e aparelhos novos" fetchpriority="high">
   <div class="envoltorio abertura-conteudo">
     <h1 id="titulo">Sua academia no Centro de Cravinhos</h1>
-    <p>Musculação com aparelhos novos, bike, funcional, ritmos e aulas para todas as idades. Professores por perto e os donos na casa. Aberta das 5h às 22h.</p>
+    <p>Musculação com aparelhos novos, spinning, dança, jiu-jítsu e aulas para todas as idades. Professores por perto e os donos na casa. Aberta das 5h às 22h.</p>
     <div class="abertura-acoes">
       <a class="btn btn-lima" id="zap-topo" href="https://wa.me/5516991072787" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
@@ -343,7 +359,7 @@
 
   <section class="secao envoltorio" id="modalidades" aria-labelledby="titulo-modalidades">
     <div class="cabeca">
-      <h2 id="titulo-modalidades">O que tem pra fazer</h2>
+      <h2 id="titulo-modalidades">Modalidades</h2>
       <p>Do primeiro treino ao aluno de 60 anos ou mais: os professores montam o treino e acompanham a execução.</p>
     </div>
     <div class="modalidades-grade">
@@ -352,29 +368,38 @@
         <figcaption>Sala de aulas coletivas</figcaption>
       </figure>
       <ul class="quadro mod-t1">
-        <li><h3>Musculação</h3><p>Aparelhos novos, peso livre e área de treino solo ao ar livre.</p></li>
-        <li><h3>Bike</h3><p>Aula de bike indoor, o spinning.</p></li>
-        <li><h3>Funcional</h3><p>Treino com o peso do corpo e acessórios, em circuito.</p></li>
-        <li><h3>Ritmos</h3><p>Aula de dança pra suar sem perceber.</p></li>
+        <li><h3>Musculação</h3><p>Aparelhos novos e área de peso livre, com acompanhamento dos professores.</p></li>
+        <li><h3>Spinning</h3><p>Aula de ciclismo indoor em grupo, com música.</p></li>
+        <li><h3>Dança</h3><p>Aula de dança em grupo, com coreografias de vários ritmos.</p></li>
+        <li><h3>Jiu-jítsu</h3><p>Arte marcial de solo, com foco em técnica e defesa pessoal.</p></li>
       </ul>
       <ul class="quadro mod-t2">
-        <li><h3>Jump</h3><p>Aula no mini trampolim, com música.</p></li>
-        <li><h3>Localizado e abdominal</h3><p>Treino focado em pernas, glúteos, braços e abdômen.</p></li>
-        <li><h3>Alongamento</h3><p>Pra soltar o corpo antes ou depois do treino.</p></li>
-        <li class="confirmar"><h3>Lutas, yoga e TaeBo</h3><p><span class="a-preencher">A confirmar: lutas para adultos e crianças, jiu-jítsu, yoga e TaeBo ainda estão na grade?</span></p></li>
+        <li><h3>Treinamento funcional</h3><p>Exercícios com o peso do corpo e acessórios, em circuito.</p></li>
+        <li><h3>Jump</h3><p>Aula aeróbica em minitrampolim, com música.</p></li>
+        <li><h3>Ginástica localizada</h3><p>Exercícios para pernas, glúteos, braços e abdômen.</p></li>
+        <li><h3>Alongamento</h3><p>Exercícios de flexibilidade, antes ou depois do treino.</p></li>
       </ul>
       <figure class="mod-foto mod-f2">
-        <img src="img/bikes.webp" width="1400" height="1050" loading="lazy" alt="Área de aparelhos com um painel grande de aula de bike na parede">
+        <img src="img/bikes.webp" width="1400" height="1050" loading="lazy" alt="Área de aparelhos com um painel grande de aula de spinning na parede">
         <figcaption>Área de aparelhos</figcaption>
       </figure>
     </div>
-    <div class="grade-aulas">
-      <h3>Horário das aulas</h3>
-      <p><span class="a-preencher">Grade de aulas por dia e horário, com o professor de cada uma (hoje fica num destaque do Instagram).</span></p>
+    <p class="ressalva mod-confirmar"><span class="a-preencher">A confirmar: ainda tem yoga e TaeBo? Tem turma infantil de jiu-jítsu?</span></p>
+  </section>
+
+  <section class="secao secao-papel" id="aulas" aria-labelledby="titulo-aulas">
+    <div class="envoltorio">
+      <div class="cabeca">
+        <h2 id="titulo-aulas">Horário das aulas</h2>
+        <p>Escolha o dia e veja as aulas em grupo. Para participar, é só chamar no WhatsApp.</p>
+      </div>
+      <div class="dias" id="dias-aulas" role="group" aria-label="Dia da semana das aulas"></div>
+      <ol class="aulas" id="lista-aulas" aria-live="polite"></ol>
+      <p class="ressalva" style="margin-top:1rem"><span class="a-preencher">Horários e professores de exemplo: a grade real (dia, hora, aula e professor) vem da academia.</span></p>
     </div>
   </section>
 
-  <section class="secao secao-papel" id="estrutura" aria-labelledby="titulo-estrutura">
+  <section class="secao" id="estrutura" aria-labelledby="titulo-estrutura">
     <div class="envoltorio">
       <div class="cabeca">
         <h2 id="titulo-estrutura">A estrutura</h2>
@@ -393,12 +418,13 @@
     </div>
   </section>
 
-  <section class="secao envoltorio" id="experimental" aria-labelledby="titulo-experimental">
+  <section class="secao secao-papel" id="experimental" aria-labelledby="titulo-experimental">
+    <div class="envoltorio">
     <div class="experimental">
       <div class="passos">
         <div class="cabeca" style="margin-bottom:0">
           <h2 id="titulo-experimental">Primeira vez? Faça uma aula experimental</h2>
-          <p>Escolha o que quer experimentar e quando prefere vir. A mensagem pro WhatsApp sai pronta.</p>
+          <p>Escolha o que quer experimentar e quando prefere vir. A mensagem para o WhatsApp sai pronta.</p>
         </div>
         <form class="passos" id="form-exp" novalidate>
           <fieldset class="escolha">
@@ -430,9 +456,10 @@
       <h3>Tem convênio de academia?</h3>
       <p>A Espaço Fitness aceita <strong>Wellhub</strong> (o antigo Gympass, a partir do plano Silver), <strong>TotalPass</strong> e outros convênios. <span class="a-preencher">Quais são os outros?</span></p>
     </div>
+    </div>
   </section>
 
-  <section class="secao secao-papel" id="contato" aria-labelledby="titulo-contato">
+  <section class="secao" id="contato" aria-labelledby="titulo-contato">
     <div class="envoltorio contato-grade">
       <div class="contato-dados">
         <h2 id="titulo-contato">Como chegar</h2>
@@ -580,8 +607,44 @@ function montarAgoraMov() {
   el.hidden = !el.textContent;
 }
 
+/* ---------- horario das aulas ----------
+   EXEMPLO ate a academia mandar a grade: cada linha = { dia (0 = domingo), hora, aula, prof }.
+   Com a grade real, trocar a lista e mudar GRADE_DE_EXEMPLO para false. */
+const GRADE_DE_EXEMPLO = true;
+const AULAS = [
+  { dia: 1, hora: "07:00", aula: "Spinning" }, { dia: 1, hora: "09:00", aula: "Ginástica localizada" }, { dia: 1, hora: "19:00", aula: "Spinning" }, { dia: 1, hora: "20:00", aula: "Jiu-jítsu" },
+  { dia: 2, hora: "07:00", aula: "Treinamento funcional" }, { dia: 2, hora: "18:00", aula: "Treinamento funcional" }, { dia: 2, hora: "19:30", aula: "Dança" },
+  { dia: 3, hora: "07:00", aula: "Spinning" }, { dia: 3, hora: "09:00", aula: "Ginástica localizada" }, { dia: 3, hora: "19:00", aula: "Spinning" }, { dia: 3, hora: "20:00", aula: "Jiu-jítsu" },
+  { dia: 4, hora: "07:00", aula: "Treinamento funcional" }, { dia: 4, hora: "18:00", aula: "Treinamento funcional" }, { dia: 4, hora: "19:30", aula: "Dança" },
+  { dia: 5, hora: "07:00", aula: "Spinning" }, { dia: 5, hora: "18:00", aula: "Jump" },
+  { dia: 6, hora: "09:00", aula: "Alongamento" },
+];
+let diaAulas = agoraBrasilia().dia;
+function montarDiasAulas() {
+  const hoje = agoraBrasilia().dia;
+  $("#dias-aulas").innerHTML = [1, 2, 3, 4, 5, 6, 0].map((d) =>
+    `<button type="button" data-dia="${d}" aria-pressed="${d === diaAulas}">${CURTO[d]}${d === hoje ? "<small>hoje</small>" : ""}</button>`).join("");
+}
+function montarAulas() {
+  const doDia = AULAS.filter((a) => a.dia === diaAulas).sort((a, b) => a.hora.localeCompare(b.hora));
+  const marca = (t) => GRADE_DE_EXEMPLO ? `<span class="a-preencher">${t}</span>` : t;
+  $("#lista-aulas").innerHTML = doDia.length ? doDia.map((a) => {
+    const quando = `${DIAS[diaAulas].toLowerCase()} às ${hora(a.hora)}`;
+    const msg = `Olá! Quero participar da aula de ${a.aula.toLowerCase()} de ${quando}.`;
+    return `<li class="aula"><span class="aula-hora">${marca(hora(a.hora))}</span>
+      <span class="aula-nome"><strong>${a.aula}</strong><span>${a.prof ? `Professor(a) ${a.prof}` : marca("Professor(a) a confirmar")}</span></span>
+      <a class="btn btn-linha" href="${zap(msg)}" target="_blank" rel="noopener">Participar<span class="so-leitor"> da aula de ${a.aula.toLowerCase()} de ${quando}</span></a></li>`;
+  }).join("") : `<li class="aulas-vazio">Sem aulas em grupo neste dia. A musculação funciona normalmente no horário da academia.</li>`;
+}
+$("#dias-aulas").addEventListener("click", (e) => {
+  const b = e.target.closest("button[data-dia]"); if (!b) return;
+  diaAulas = Number(b.dataset.dia);
+  document.querySelectorAll("#dias-aulas button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+  montarAulas();
+});
+
 /* ---------- aula experimental ---------- */
-const MODALIDADES = ["Musculação", "Bike", "Funcional", "Ritmos", "Jump", "Localizado"];
+const MODALIDADES = ["Musculação", "Spinning", "Dança", "Jiu-jítsu", "Treinamento funcional", "Jump", "Ginástica localizada"];
 const PERIODOS = [["manha", "De manhã", 5, 12], ["tarde", "À tarde", 12, 17], ["noite", "À noite", 17, 22]];
 function opcao(nome, valor, texto, marcado) {
   return `<label><input type="radio" name="${nome}" value="${valor}"${marcado ? " checked" : ""}><span>${texto}</span></label>`;
@@ -615,7 +678,7 @@ const experimental = zap("Olá! Quero marcar uma aula experimental na Espaço Fi
 ["#zap-topo", "#zap-barra"].forEach((s) => { $(s).href = experimental; });
 $("#zap-contato").href = zap("Olá! Quero saber mais sobre a Espaço Fitness.");
 
-montarStatus(); montarHorarios(); montarDias(); montarMovimento(); montarAgoraMov(); montarExperimental();
+montarStatus(); montarHorarios(); montarDias(); montarMovimento(); montarAgoraMov(); montarDiasAulas(); montarAulas(); montarExperimental();
 setInterval(() => { montarStatus(); montarAgoraMov(); }, 60000);
 </script>
 </body>
