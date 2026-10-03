@@ -147,7 +147,7 @@
   .cabeca { display: grid; grid-template-columns: minmax(0, 1fr); gap: .8rem; max-width: 46rem; margin-bottom: 2.25rem; }
   .cabeca p { color: var(--tinta-2); font-size: 1.15rem; }
 
-  /* ---------- que horas esta mais vazia? (o elemento da casa) ---------- */
+  /* ---------- melhor horario pra treinar (o elemento da casa) ---------- */
   .mov { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
   .dias { display: grid; grid-template-columns: repeat(auto-fit, minmax(2.55rem, 1fr)); gap: .4rem; max-width: 36rem; }
   .dias button {
@@ -185,12 +185,17 @@
   .quadro p { color: var(--tinta-2); }
   .quadro .confirmar h3 { color: var(--tinta-2); }
   .grade-aulas { margin-top: 2rem; display: grid; gap: .75rem; max-width: 46rem; }
-  .modalidades-grade { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(1.75rem, 5vw, 4rem); align-items: start; }
-  .modalidades-foto { position: sticky; top: 1.5rem; }
-  .modalidades-foto img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 16px; }
-  .modalidades-foto figcaption { margin-top: .6rem; font-size: .95rem; color: var(--tinta-2); }
-  .modalidades-grade .quadro { grid-template-columns: minmax(0, 1fr); }
-  @media (max-width: 860px) { .modalidades-grade { grid-template-columns: minmax(0, 1fr); } .modalidades-foto { position: static; } .modalidades-foto img { aspect-ratio: 16 / 10; } }
+  .modalidades-grade { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "f1 t1" "t2 f2"; gap: clamp(1.5rem, 3vw, 2.5rem) clamp(1.75rem, 5vw, 4rem); }
+  .mod-f1 { grid-area: f1; } .mod-t1 { grid-area: t1; } .mod-t2 { grid-area: t2; } .mod-f2 { grid-area: f2; }
+  .mod-foto { position: relative; min-height: 22rem; border-radius: 16px; overflow: hidden; background: var(--linha); }
+  .mod-foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .mod-foto figcaption { position: absolute; left: .75rem; bottom: .75rem; max-width: calc(100% - 1.5rem); padding: .3rem .65rem; border-radius: 6px; background: var(--branco); color: var(--tinta); font-size: .92rem; font-weight: 600; }
+  .modalidades-grade .quadro { grid-template-columns: minmax(0, 1fr); align-content: start; }
+  @media (max-width: 760px) {
+    .modalidades-grade { grid-template-columns: minmax(0, 1fr); grid-template-areas: "f1" "t1" "t2" "f2"; }
+    .modalidades-grade .mod-t2 { border-top: 0; margin-top: calc(-1 * clamp(1.5rem, 3vw, 2.5rem)); }
+    .mod-foto { min-height: 0; aspect-ratio: 16 / 10; }
+  }
 
   /* ---------- estrutura: mosaico de fotos reais ---------- */
   .mosaico { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: clamp(120px, 16vw, 210px); gap: clamp(6px, 1vw, 12px); }
@@ -285,7 +290,7 @@
   <div class="envoltorio topo-grade">
     <a class="marca" href="#"><img src="img/logo-topo.webp" width="380" height="226" alt="Academia Espaço Fitness, página inicial"></a>
     <nav class="menu" aria-label="Principal">
-      <a href="#movimento">Hora mais vazia</a>
+      <a href="#movimento">Melhores horários</a>
       <a href="#modalidades">Modalidades</a>
       <a href="#estrutura">Estrutura</a>
       <a href="#contato">Contato</a>
@@ -304,7 +309,7 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
         Marcar aula experimental
       </a>
-      <a class="btn btn-vidro" href="#movimento">Ver a hora mais vazia</a>
+      <a class="btn btn-vidro" href="#movimento">Ver os melhores horários</a>
     </div>
     <p class="convenios"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="m4 12.5 5 5L20 6.5"/></svg>Aceita Wellhub, TotalPass e outros convênios</p>
   </div>
@@ -320,8 +325,8 @@
   <section class="secao secao-papel" id="movimento" aria-labelledby="titulo-movimento">
     <div class="envoltorio mov">
       <div class="cabeca">
-        <h2 id="titulo-movimento">Que horas está mais vazia?</h2>
-        <p>Quanto a academia costuma estar cheia em cada hora, segundo o Google. Escolha o dia e fuja do pico.</p>
+        <h2 id="titulo-movimento">Melhores horários</h2>
+        <p>O movimento da academia hora a hora, segundo o Google. Escolha o dia e venha quando estiver mais tranquilo.</p>
       </div>
       <div class="dias" id="dias" role="group" aria-label="Dia da semana"></div>
       <div class="mov-quadro">
@@ -331,7 +336,7 @@
         </div>
         <dl class="resumo" id="resumo" aria-live="polite"></dl>
       </div>
-      <p class="legenda"><span><i aria-hidden="true"></i>quanto mais alta, mais cheia</span><span><i class="v" aria-hidden="true"></i>horas mais vazias do dia</span></p>
+      <p class="legenda"><span><i aria-hidden="true"></i>quanto mais alta, mais cheia</span><span><i class="v" aria-hidden="true"></i>horas mais tranquilas do dia</span></p>
       <p class="ressalva">É uma média das últimas semanas: feriado, começo de mês e dia de chuva mudam o movimento.</p>
     </div>
   </section>
@@ -342,26 +347,30 @@
       <p>Do primeiro treino ao aluno de 60 anos ou mais: os professores montam o treino e acompanham a execução.</p>
     </div>
     <div class="modalidades-grade">
-    <figure class="modalidades-foto">
-      <img src="img/sala-aulas.webp" width="1400" height="788" loading="lazy" alt="Sala de aulas coletivas com espelho, piso claro, parede de tijolinho e luz de LED azul">
-      <figcaption>A sala das aulas coletivas.</figcaption>
-    </figure>
-    <div>
-    <ul class="quadro">
-      <li><h3>Musculação</h3><p>Aparelhos novos, peso livre e área de treino solo ao ar livre.</p></li>
-      <li><h3>Bike</h3><p>Aula de bike indoor, o spinning.</p></li>
-      <li><h3>Funcional</h3><p>Treino com o peso do corpo e acessórios, em circuito.</p></li>
-      <li><h3>Ritmos</h3><p>Aula de dança pra suar sem perceber.</p></li>
-      <li><h3>Jump</h3><p>Aula no mini trampolim, com música.</p></li>
-      <li><h3>Localizado e abdominal</h3><p>Treino focado em pernas, glúteos, braços e abdômen.</p></li>
-      <li><h3>Alongamento</h3><p>Pra soltar o corpo antes ou depois do treino.</p></li>
-      <li class="confirmar"><h3>Lutas, yoga e TaeBo</h3><p><span class="a-preencher">A confirmar: lutas para adultos e crianças, jiu-jítsu, yoga e TaeBo ainda estão na grade?</span></p></li>
-    </ul>
+      <figure class="mod-foto mod-f1">
+        <img src="img/sala-aulas.webp" width="1400" height="788" loading="lazy" alt="Sala de aulas coletivas com espelho, piso claro, parede de tijolinho e luz de LED azul">
+        <figcaption>Sala de aulas coletivas</figcaption>
+      </figure>
+      <ul class="quadro mod-t1">
+        <li><h3>Musculação</h3><p>Aparelhos novos, peso livre e área de treino solo ao ar livre.</p></li>
+        <li><h3>Bike</h3><p>Aula de bike indoor, o spinning.</p></li>
+        <li><h3>Funcional</h3><p>Treino com o peso do corpo e acessórios, em circuito.</p></li>
+        <li><h3>Ritmos</h3><p>Aula de dança pra suar sem perceber.</p></li>
+      </ul>
+      <ul class="quadro mod-t2">
+        <li><h3>Jump</h3><p>Aula no mini trampolim, com música.</p></li>
+        <li><h3>Localizado e abdominal</h3><p>Treino focado em pernas, glúteos, braços e abdômen.</p></li>
+        <li><h3>Alongamento</h3><p>Pra soltar o corpo antes ou depois do treino.</p></li>
+        <li class="confirmar"><h3>Lutas, yoga e TaeBo</h3><p><span class="a-preencher">A confirmar: lutas para adultos e crianças, jiu-jítsu, yoga e TaeBo ainda estão na grade?</span></p></li>
+      </ul>
+      <figure class="mod-foto mod-f2">
+        <img src="img/bikes.webp" width="1400" height="1050" loading="lazy" alt="Área de aparelhos com um painel grande de aula de bike na parede">
+        <figcaption>Área de aparelhos</figcaption>
+      </figure>
+    </div>
     <div class="grade-aulas">
       <h3>Horário das aulas</h3>
       <p><span class="a-preencher">Grade de aulas por dia e horário, com o professor de cada uma (hoje fica num destaque do Instagram).</span></p>
-    </div>
-    </div>
     </div>
   </section>
 
@@ -374,12 +383,12 @@
       <div class="mosaico">
         <figure class="m1"><img src="img/vista-de-cima.webp" width="1400" height="1050" loading="lazy" alt="Vista de cima da sala de musculação, com dezenas de aparelhos e alunos treinando"><figcaption>Musculação</figcaption></figure>
         <figure class="m2"><img src="img/loja.webp" width="1050" height="1400" loading="lazy" alt="Corredor da entrada com a vitrine da loja de roupas e artigos esportivos"><figcaption>Loja</figcaption></figure>
-        <figure class="m3"><img src="img/bikes.webp" width="1400" height="1050" loading="lazy" alt="Área de aparelhos com um painel grande de aula de bike na parede"><figcaption>Aparelhos</figcaption></figure>
+        <figure class="m3"><img src="img/fachada.webp" width="1400" height="1050" loading="lazy" alt="Fachada da Espaço Fitness: prédio de concreto com o letreiro da academia, na Rua Saldanha Marinho"><figcaption>Fachada</figcaption></figure>
         <figure class="m4"><img src="img/led-azul.webp" width="1400" height="1050" loading="lazy" alt="Andar de cima com aparelhos de musculação e faixa de LED azul no teto"><figcaption>Andar de cima</figcaption></figure>
         <figure class="m5"><img src="img/recepcao.webp" width="1400" height="1050" loading="lazy" alt="Recepção com balcão de tijolinho, lanchonete e teto de madeira"><figcaption>Lanchonete</figcaption></figure>
       </div>
       <ul class="comodidades" aria-label="Comodidades">
-        <li>Ar-condicionado</li><li>Vestiário</li><li>Área infantil</li><li>Acessível para cadeira de rodas</li><li>Wi-Fi</li><li>Lanchonete</li><li>Loja de artigos esportivos</li>
+        <li>Ar-condicionado</li><li>Vestiário</li><li>Acessível para cadeira de rodas</li><li>Wi-Fi</li><li>Lanchonete</li><li>Loja de artigos esportivos</li>
       </ul>
     </div>
   </section>
@@ -549,13 +558,13 @@ function montarMovimento() {
   const max = Math.max(...Object.values(m)), pico = horas.filter((h) => m[h] === max);
   $("#barras").innerHTML = horas.map((h) => {
     const agora = diaEscolhido === a.dia && h === a.hora && situacao().aberto;
-    return `<li class="${vz.includes(h) ? "vazia" : ""}${agora ? " atual" : ""}" style="--v:${m[h]}%"><span class="valor"></span><span class="so-leitor">${h}h: ${nivel(m[h])}${vz.includes(h) ? ", uma das horas mais vazias" : ""}${agora ? " (agora)" : ""}</span></li>`;
+    return `<li class="${vz.includes(h) ? "vazia" : ""}${agora ? " atual" : ""}" style="--v:${m[h]}%"><span class="valor"></span><span class="so-leitor">${h}h: ${nivel(m[h])}${vz.includes(h) ? ", uma das horas mais tranquilas" : ""}${agora ? " (agora)" : ""}</span></li>`;
   }).join("");
   $("#horas").innerHTML = horas.map((h) => `<span>${h}h</span>`).join("");
   $("#barras").setAttribute("aria-label", `Movimento por hora: ${DIAS[diaEscolhido].toLowerCase()}`);
   /* pra quem so treina depois do trabalho: a hora mais tranquila a partir das 17h */
   const noite = horas.filter((h) => h >= 17), melhorNoite = noite.length ? noite.reduce((x, y) => (m[y] < m[x] ? y : x)) : null;
-  $("#resumo").innerHTML = `<div><dt>Mais vazia</dt><dd class="vazio-txt">${faixas(vz)}</dd></div>
+  $("#resumo").innerHTML = `<div><dt>Mais tranquila</dt><dd class="vazio-txt">${faixas(vz)}</dd></div>
     ${melhorNoite !== null ? `<div><dt>Depois das 17h, a mais tranquila</dt><dd>${melhorNoite}h</dd></div>` : ""}
     <div><dt>Mais cheia</dt><dd>${pico.map((h) => `${h}h`).join(" e ")}</dd></div>`;
 }
