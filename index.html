@@ -236,9 +236,11 @@
     .mosaico { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: clamp(130px, 38vw, 220px); }
     .m1 { grid-column: span 2; grid-row: span 1; } .m2 { grid-column: span 1; grid-row: span 2; } .m3, .m4, .m5 { grid-column: span 1; }
   }
-  .comodidades { list-style: none; margin: 2.25rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); gap: .75rem 2rem; }
-  .comodidades li { display: flex; align-items: center; gap: .6rem; font-weight: 600; }
-  .comodidades li::before { content: ""; width: 1.4rem; height: 1.4rem; flex: none; border-radius: 50%; background: var(--lima) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%232E1B57' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round' d='m6 12.5 4 4 8-9'/%3E%3C/svg%3E") center / 70% no-repeat; }
+  /* cada item com a largura do proprio texto: nada quebra em 2 linhas e desnivela a fileira */
+  .comodidades { list-style: none; margin: 2.25rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .75rem 2.5rem; }
+  .comodidades li { display: flex; align-items: flex-start; gap: .6rem; min-width: 0; font-weight: 600; }
+  @media (max-width: 600px) { .comodidades { flex-direction: column; } }   /* no celular, um item por linha */
+  .comodidades li::before { content: ""; width: 1.4rem; height: 1.4rem; flex: none; margin-top: .2rem; border-radius: 50%; background: var(--lima) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%232E1B57' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round' d='m6 12.5 4 4 8-9'/%3E%3C/svg%3E") center / 70% no-repeat; }
 
   /* ---------- aula experimental: passos a esquerda, conversa do WhatsApp a direita ---------- */
   .experimental { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(1.75rem, 5vw, 4.5rem); align-items: start; }
