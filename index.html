@@ -110,16 +110,15 @@
   .menu a { color: var(--tinta); text-decoration: none; padding: .55rem 0; font-weight: 600; }
   .menu a:hover { color: var(--anil); text-decoration: underline; }
   .menu .menu-tel { color: var(--anil); font-weight: 800; }
-  /* botao do menu (so no celular): 3 barrinhas inclinadas como o traco do F do logo; viram X ao abrir */
+  /* botao do menu (so no celular): 3 barrinhas retas no anil do logo; viram X ao abrir */
   .menu-botao { display: none; }
   @media (max-width: 900px) {
     .menu-botao {
       display: grid; align-content: center; justify-items: center; gap: 5px; width: 52px; height: 52px; margin-right: -8px; padding: 0;
       border: 0; border-radius: var(--raio); background: none; cursor: pointer;
     }
-    .menu-botao span { display: block; width: 28px; height: 4.5px; border-radius: 4px; background: var(--lima-escuro); transform: rotate(-9deg); transition: transform .25s cubic-bezier(.2, .7, .2, 1), opacity .2s, background-color .25s; }
-    .menu-botao:hover span { background: var(--lima-texto); }
-    .menu-aberto .menu-botao span { background: var(--anil); }
+    .menu-botao span { display: block; width: 28px; height: 4.5px; border-radius: 4px; background: var(--anil); transition: transform .25s cubic-bezier(.2, .7, .2, 1), opacity .2s, background-color .25s; }
+    .menu-botao:hover span { background: var(--anil-escuro); }
     .menu-aberto .menu-botao span:nth-child(1) { transform: translateY(9.5px) rotate(45deg); }
     .menu-aberto .menu-botao span:nth-child(2) { opacity: 0; }
     .menu-aberto .menu-botao span:nth-child(3) { transform: translateY(-9.5px) rotate(-45deg); }
