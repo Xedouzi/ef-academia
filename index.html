@@ -228,7 +228,41 @@
   .mosaico { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: clamp(120px, 16vw, 210px); gap: clamp(6px, 1vw, 12px); }
   .mosaico figure { position: relative; overflow: hidden; border-radius: var(--raio); background: var(--linha); }
   .mosaico img { width: 100%; height: 100%; object-fit: cover; }
-  .mosaico figcaption { position: absolute; left: .6rem; bottom: .6rem; max-width: calc(100% - 1.2rem); padding: .3rem .65rem; border-radius: 6px; background: var(--branco); color: var(--tinta); font-size: .92rem; font-weight: 600; }
+  .mosaico figcaption { position: absolute; left: .6rem; bottom: .6rem; max-width: calc(100% - 1.2rem); padding: .3rem .65rem; border-radius: 6px; background: var(--branco); color: var(--tinta); font-size: .92rem; font-weight: 600; pointer-events: none; }
+  /* cada foto e um botao que abre o visor */
+  .ampliar { display: block; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+  .ampliar img { transition: transform .4s cubic-bezier(.2, .7, .2, 1); }
+  .ampliar:hover img { transform: scale(1.04); }
+  .ampliar:focus-visible { outline: none; box-shadow: inset 0 0 0 3px var(--branco), inset 0 0 0 6px var(--anil); }
+  @media (prefers-reduced-motion: reduce) { .ampliar img { transition: none; } .ampliar:hover img { transform: none; } }
+
+  /* ---------- visor: a foto grande por cima de tudo ---------- */
+  .visor { width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; padding: clamp(12px, 3vw, 32px); border: 0; background: transparent; color: #fff; overflow: hidden; }
+  .visor::backdrop { background: rgba(23, 13, 43, .93); }
+  .visor[open] { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "ant foto prox"; align-items: center; gap: clamp(.5rem, 2vw, 1.5rem); }
+  .visor-foto { grid-area: foto; margin: 0; min-width: 0; min-height: 0; display: grid; justify-items: center; gap: .8rem; }
+  .visor-foto img { width: auto; height: auto; max-width: 100%; max-height: max(58dvh, calc(100dvh - 8.5rem)); object-fit: contain; border-radius: var(--raio); touch-action: pan-y; user-select: none; -webkit-user-drag: none; }
+  .visor-foto figcaption { display: flex; flex-wrap: wrap; justify-content: center; gap: .2rem .9rem; font-weight: 600; font-size: 1.05rem; text-align: center; }
+  .visor-foto figcaption small { font-weight: 400; font-size: .95rem; color: #D8D0EA; }
+  .visor button { display: grid; place-items: center; width: 52px; height: 52px; padding: 0; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .14); color: #fff; cursor: pointer; transition: background-color .25s; }
+  .visor button:hover { background: rgba(255, 255, 255, .26); }
+  .visor button:focus-visible { outline: 3px solid var(--lima); outline-offset: 3px; }
+  .visor button svg { width: 24px; height: 24px; }
+  .visor-fechar { position: absolute; top: clamp(10px, 2vw, 20px); right: clamp(10px, 2vw, 20px); z-index: 1; }
+  .visor-ant { grid-area: ant; }
+  .visor-prox { grid-area: prox; }
+  @media (prefers-reduced-motion: no-preference) {
+    .visor-foto img.entrando { animation: visor-entra .28s cubic-bezier(.2, .7, .2, 1); }
+  }
+  @keyframes visor-entra { from { opacity: 0; transform: scale(.96); } }
+  /* no celular: a foto ocupa a largura e as setas vao pra baixo dela */
+  @media (max-width: 640px) {
+    .visor[open] { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "foto foto" "ant prox"; align-content: center; padding-top: 4.5rem; }
+    .visor-foto img { max-height: max(50dvh, calc(100dvh - 13rem)); }
+    .visor-ant { justify-self: end; margin-right: .5rem; }
+    .visor-prox { justify-self: start; margin-left: .5rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .visor button { transition: none; } }
   .m1 { grid-column: span 4; grid-row: span 2; }
   .m2 { grid-column: span 2; grid-row: span 2; }
   .m3, .m4, .m5 { grid-column: span 2; }
@@ -465,11 +499,11 @@
         <p>Dois andares, bem ventilados e climatizados, com lanchonete e loja na entrada.</p>
       </div>
       <div class="mosaico">
-        <figure class="m1"><img src="img/vista-de-cima.webp" width="1400" height="1050" loading="lazy" alt="Vista de cima da sala de musculação, com dezenas de aparelhos e alunos treinando"><figcaption>Musculação</figcaption></figure>
-        <figure class="m2"><img src="img/loja.webp" width="1050" height="1400" loading="lazy" alt="Corredor da entrada com a vitrine da loja de roupas e artigos esportivos"><figcaption>Loja</figcaption></figure>
-        <figure class="m3"><img src="img/fachada.webp" width="1400" height="1050" loading="lazy" alt="Fachada da Espaço Fitness: prédio de concreto com o letreiro da academia, na Rua Saldanha Marinho"><figcaption>Fachada</figcaption></figure>
-        <figure class="m4"><img src="img/led-azul.webp" width="1400" height="1050" loading="lazy" alt="Andar de cima com aparelhos de musculação e faixa de LED azul no teto"><figcaption>Andar de cima</figcaption></figure>
-        <figure class="m5"><img src="img/recepcao.webp" width="1400" height="1050" loading="lazy" alt="Recepção com balcão de tijolinho, lanchonete e teto de madeira"><figcaption>Lanchonete</figcaption></figure>
+        <figure class="m1"><button class="ampliar" type="button" aria-label="Ampliar a foto: Musculação"><img src="img/vista-de-cima.webp" width="1400" height="1050" loading="lazy" alt="Vista de cima da sala de musculação, com dezenas de aparelhos e alunos treinando"></button><figcaption>Musculação</figcaption></figure>
+        <figure class="m2"><button class="ampliar" type="button" aria-label="Ampliar a foto: Loja"><img src="img/loja.webp" width="1050" height="1400" loading="lazy" alt="Corredor da entrada com a vitrine da loja de roupas e artigos esportivos"></button><figcaption>Loja</figcaption></figure>
+        <figure class="m3"><button class="ampliar" type="button" aria-label="Ampliar a foto: Fachada"><img src="img/fachada.webp" width="1400" height="1050" loading="lazy" alt="Fachada da Espaço Fitness: prédio de concreto com o letreiro da academia, na Rua Saldanha Marinho"></button><figcaption>Fachada</figcaption></figure>
+        <figure class="m4"><button class="ampliar" type="button" aria-label="Ampliar a foto: Andar de cima"><img src="img/led-azul.webp" width="1400" height="1050" loading="lazy" alt="Andar de cima com aparelhos de musculação e faixa de LED azul no teto"></button><figcaption>Andar de cima</figcaption></figure>
+        <figure class="m5"><button class="ampliar" type="button" aria-label="Ampliar a foto: Lanchonete"><img src="img/recepcao.webp" width="1400" height="1050" loading="lazy" alt="Recepção com balcão de tijolinho, lanchonete e teto de madeira"></button><figcaption>Lanchonete</figcaption></figure>
       </div>
       <ul class="comodidades" aria-label="Comodidades">
         <li>Ar-condicionado</li><li>Vestiário</li><li>Acessível para cadeira de rodas</li><li>Wi-Fi</li><li>Lanchonete</li><li>Loja de artigos esportivos</li>
@@ -560,6 +594,13 @@
   <a class="btn btn-linha" href="tel:+551639513660">Ligar</a>
   <a class="btn" id="zap-barra" href="https://wa.me/5516991072787" target="_blank" rel="noopener">WhatsApp</a>
 </nav>
+
+<dialog class="visor" id="visor" aria-label="Fotos da estrutura">
+  <button class="visor-fechar" type="button" id="visor-fechar" aria-label="Fechar"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <button class="visor-ant" type="button" id="visor-ant" aria-label="Foto anterior"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <figure class="visor-foto"><img id="visor-img" src="data:," alt=""><figcaption><span id="visor-legenda"></span><small id="visor-conta"></small></figcaption></figure>
+  <button class="visor-prox" type="button" id="visor-prox" aria-label="Próxima foto"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+</dialog>
 
 <script>
 /* ============================================================
@@ -795,6 +836,50 @@ mostrarFlutuante();
 const experimental = zap("Olá! Quero marcar uma aula experimental na Espaço Fitness. Qual o melhor dia?");
 ["#zap-topo", "#zap-barra"].forEach((s) => { $(s).href = experimental; });
 $("#zap-contato").href = zap("Olá! Quero saber mais sobre a Espaço Fitness.");
+
+/* ---------- fotos da estrutura: clicar amplia ---------- */
+const fotos = [...document.querySelectorAll(".mosaico .ampliar")];
+const visor = $("#visor"), visorImg = $("#visor-img");
+let fotoAtual = 0;
+function mostrarFoto(i) {
+  fotoAtual = (i + fotos.length) % fotos.length;
+  const img = fotos[fotoAtual].querySelector("img");
+  visorImg.src = img.currentSrc || img.src;
+  visorImg.alt = img.alt;
+  $("#visor-legenda").textContent = fotos[fotoAtual].closest("figure").querySelector("figcaption").textContent;
+  $("#visor-conta").textContent = `${fotoAtual + 1} de ${fotos.length}`;
+  visorImg.classList.remove("entrando"); void visorImg.offsetWidth; visorImg.classList.add("entrando");
+}
+function abrirVisor(i) {
+  mostrarFoto(i);
+  document.documentElement.style.overflow = "hidden";
+  visor.showModal();
+}
+/* o evento "close" nem sempre dispara (ex.: aba oculta): limpa tudo aqui mesmo */
+function fecharVisor() {
+  document.documentElement.style.overflow = "";
+  if (visor.open) visor.close();
+}
+fotos.forEach((b, i) => b.addEventListener("click", () => abrirVisor(i)));
+$("#visor-fechar").addEventListener("click", fecharVisor);
+$("#visor-ant").addEventListener("click", () => mostrarFoto(fotoAtual - 1));
+$("#visor-prox").addEventListener("click", () => mostrarFoto(fotoAtual + 1));
+visor.addEventListener("cancel", (e) => { e.preventDefault(); fecharVisor(); });   /* Esc */
+visor.addEventListener("close", () => { document.documentElement.style.overflow = ""; });
+/* clique fora da foto fecha */
+visor.addEventListener("click", (e) => { if (e.target === visor || e.target.classList.contains("visor-foto")) fecharVisor(); });
+visor.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowLeft") { e.preventDefault(); mostrarFoto(fotoAtual - 1); }
+  if (e.key === "ArrowRight") { e.preventDefault(); mostrarFoto(fotoAtual + 1); }
+});
+/* deslizar o dedo na foto troca de foto */
+let toqueX = null;
+visorImg.addEventListener("pointerdown", (e) => { toqueX = e.clientX; });
+visorImg.addEventListener("pointerup", (e) => {
+  if (toqueX === null) return;
+  const dx = e.clientX - toqueX; toqueX = null;
+  if (Math.abs(dx) > 50) mostrarFoto(fotoAtual + (dx < 0 ? 1 : -1));
+});
 
 montarStatus(); montarHorarios(); montarDias(); escolherDiaMov(diaMov, false); montarDiasAulas(); montarAulas(); montarExperimental();
 setInterval(() => { montarStatus(); desenharCurva(); }, 60000);
