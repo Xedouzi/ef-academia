@@ -240,8 +240,8 @@
   .comodidades { list-style: none; margin: 2.25rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .75rem 2.5rem; }
   .comodidades li { display: flex; align-items: flex-start; gap: .6rem; min-width: 0; font-weight: 600; }
   @media (max-width: 600px) { .comodidades { flex-direction: column; } }   /* no celular, um item por linha */
-  /* no computador: 2 linhas x 3 colunas, cada coluna na largura do item mais comprido */
-  @media (min-width: 56.25em) { .comodidades { display: grid; grid-template-columns: repeat(3, minmax(0, max-content)); gap: .9rem 2.75rem; } }   /* 56.25em = 900px com a fonte normal; cresce junto com a fonte do sistema */
+  /* no computador: 2 linhas x 3 colunas espalhadas da borda esquerda a direita do mosaico de fotos */
+  @media (min-width: 56.25em) { .comodidades { display: grid; grid-template-columns: repeat(3, minmax(0, max-content)); justify-content: space-between; gap: 1rem 2.75rem; } }   /* 56.25em = 900px com a fonte normal; cresce junto com a fonte do sistema */
   .comodidades li::before { content: ""; width: 1.4rem; height: 1.4rem; flex: none; margin-top: .2rem; border-radius: 50%; background: var(--lima) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%232E1B57' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round' d='m6 12.5 4 4 8-9'/%3E%3C/svg%3E") center / 70% no-repeat; }
 
   /* ---------- aula experimental: passos a esquerda, conversa do WhatsApp a direita ---------- */
