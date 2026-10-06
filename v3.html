@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="theme-color" content="#FFFFFF">
+<title>Espaço Fitness Academia | Musculação e aulas no Centro de Cravinhos, SP</title>
+<meta name="description" content="Academia no Centro de Cravinhos: musculação, spinning, dança, jiu-jítsu e mais. Aberta das 5h às 22h. Aceita Wellhub e TotalPass. Rua Saldanha Marinho, 274.">
+<!-- DEMO: remover a linha abaixo quando publicar no dominio definitivo do cliente -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Crect%20width%3D%2732%27%20height%3D%2732%27%20fill%3D%27%23422679%27%2F%3E%3Ctext%20x%3D%2716%27%20y%3D%2722%27%20font-family%3D%27Arial%27%20font-weight%3D%27800%27%20font-size%3D%2715%27%20fill%3D%27white%27%20text-anchor%3D%27middle%27%3EEF%3C%2Ftext%3E%3C%2Fsvg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Kanit:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ExerciseGym",
+  "name": "Espaço Fitness Academia",
+  "telephone": "+55-16-3951-3660",
+  "address": { "@type": "PostalAddress", "streetAddress": "Rua Saldanha Marinho, 274 - Centro", "addressLocality": "Cravinhos", "addressRegion": "SP", "postalCode": "14140-000", "addressCountry": "BR" },
+  "geo": { "@type": "GeoCoordinates", "latitude": -21.3434157, "longitude": -47.732518 },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "05:00", "closes": "22:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "08:00", "closes": "12:00" }
+  ],
+  "sameAs": ["https://www.instagram.com/ef_academia/", "https://facebook.com/espaco.fitness.cravinhos"]
+}
+</script>
+<style>
+  /* v3 "Painel": Kanit italica nos titulos (o traco inclinado do F do logo) + Hanken Grotesk no texto.
+     Titulo ANTES da foto (nao em cima dela), grafico do dia que se arrasta, grade da semana inteira,
+     tour que rola de lado, modalidades com a coluna da esquerda fixa.
+     Cores do LOGO: anil #422679 + limao #A4C739 (limao so como fundo ou sobre anil, nunca texto em fundo claro). */
+  :root {
+    color-scheme: only light;
+    --branco: #FFFFFF;
+    --nevoa: #F4F2F9;
+    --linha: #E2DEEB;
+    --linha-forte: #8E86A6;   /* 3,4:1 */
+    --tinta: #1E1B2B;
+    --tinta-2: #4A4659;       /* 8,4:1 */
+    --anil: #422679;
+    --anil-escuro: #2E1B57;
+    --anil-claro: #D9D2EC;
+    --lima: #A4C739;
+    --lima-texto: #557012;
+    --lima-claro: #EEF5D8;
+    --amarelo: #FFF0A6;
+    --amarelo-borda: #8A6D00;
+    --raio: 16px;
+    --raio-p: 10px;
+    --fonte: "Hanken Grotesk", "Hanken reserva", Arial, sans-serif;
+    --display: "Kanit", "Kanit reserva", Arial, sans-serif;
+    --largura: 1240px;
+    --margem: clamp(16px, 4vw, 40px);
+  }
+  @font-face { font-family: "Hanken reserva"; src: local("Arial"); size-adjust: 100%; }
+  @font-face { font-family: "Kanit reserva"; src: local("Arial Italic"), local("Arial"); font-style: italic; size-adjust: 95.6%; }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { margin: 0; background: var(--branco); color: var(--tinta); font: 400 1.125rem/1.6 var(--fonte); }
+  img { max-width: 100%; height: auto; display: block; }
+  figure { margin: 0; }
+  a { color: var(--anil); text-underline-offset: .18em; }
+  :focus-visible { outline: 3px solid var(--anil); outline-offset: 3px; }
+  h1, h2, h3 { font-family: var(--display); font-style: italic; font-weight: 600; line-height: 1; margin: 0; text-wrap: balance; overflow-wrap: break-word; }
+  h2 { font-size: clamp(2.3rem, 1.5rem + 2.8vw, 3.8rem); color: var(--anil); letter-spacing: -.01em; }
+  h3 { font-size: 1.5rem; font-weight: 500; }
+  p { margin: 0; }
+  p, li, label, dd, dt, small, legend, figcaption, .btn { overflow-wrap: anywhere; }
+  .envoltorio { max-width: var(--largura); margin-inline: auto; padding-inline: var(--margem); }
+  .a-preencher { background: var(--amarelo); box-shadow: inset 0 -2px 0 var(--amarelo-borda); padding: 0 .25em; color: var(--tinta); }
+  .pular { position: absolute; left: 1rem; top: -5rem; z-index: 60; padding: .8rem 1rem; background: var(--branco); color: var(--tinta); }
+  .pular:focus { top: 1rem; }
+  .so-leitor { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; max-width: 100%; min-height: 52px; padding: .75rem 1.4rem; border: 0; border-radius: var(--raio-p); background: var(--anil); color: #fff; font: 600 1.075rem/1.15 var(--fonte); text-decoration: none; text-align: center; cursor: pointer; transition: background-color .25s; }
+  .btn:hover { background: var(--anil-escuro); }
+  .btn svg { width: 1.3em; height: 1.3em; flex: none; }
+  .btn-linha { background: var(--branco); color: var(--anil); box-shadow: inset 0 0 0 1.5px var(--linha-forte); }
+  .btn-linha:hover { background: var(--nevoa); }
+  .btn-lima { background: var(--lima); color: var(--anil-escuro); }
+  .btn-lima:hover { background: #B8D85A; }
+  @media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
+
+  /* ===== topo fixo com o status ao vivo ===== */
+  .topo { position: sticky; top: 0; z-index: 40; background: rgba(255,255,255,.96); border-bottom: 1px solid var(--linha); }
+  @supports (backdrop-filter: blur(8px)) { .topo { background: rgba(255,255,255,.88); backdrop-filter: blur(8px); } }
+  .topo-grade { display: flex; align-items: center; gap: .75rem 1.75rem; min-height: 4.5rem; padding-block: .4rem; }
+  .marca { display: inline-flex; align-items: center; line-height: 0; flex: none; min-height: 44px; }
+  .marca img { width: auto; height: 3.75rem; }
+  .menu { display: flex; flex-wrap: wrap; gap: .1rem 1.3rem; align-items: center; margin-right: auto; }
+  .menu a { color: var(--tinta); text-decoration: none; padding: .6rem 0; font-weight: 500; font-size: 1.02rem; }
+  .menu a:hover { color: var(--anil); text-decoration: underline; }
+  .topo-status { display: inline-flex; align-items: center; gap: .5rem; min-width: 0; padding: .4rem .8rem; border-radius: 999px; background: var(--nevoa); color: var(--tinta); font-size: .95rem; font-weight: 500; white-space: nowrap; }
+  .ponto { width: .65rem; height: .65rem; border-radius: 50%; background: var(--lima-texto); flex: none; }
+  .fechado .ponto { background: #B3261E; }
+  .topo .btn { min-height: 44px; padding: .5rem 1rem; font-size: 1rem; flex: none; }
+  @media (max-width: 1180px) { .topo-status { display: none; } }
+  @media (max-width: 960px) {
+    .topo { position: static; background: var(--branco); backdrop-filter: none; }
+    .menu, .topo .btn { display: none; }
+    .topo-grade { justify-content: center; }
+    html { scroll-padding-top: 0; }
+  }
+
+  /* ===== abertura: titulo primeiro, foto panoramica embaixo ===== */
+  .abertura { padding-top: clamp(2rem, 5vw, 4rem); }
+  .abertura-texto { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "titulo titulo" "texto acoes"; gap: clamp(1.25rem, 2.5vw, 2rem) clamp(2rem, 5vw, 4.5rem); align-items: end; }
+  .abertura h1 { grid-area: titulo; max-width: 13.5em; font-size: clamp(2.7rem, 1rem + 5.6vw, 6.2rem); line-height: .92; letter-spacing: -.025em; color: var(--anil); }
+  .abertura-texto > p { grid-area: texto; max-width: 34rem; font-size: 1.2rem; color: var(--tinta-2); }
+  .abertura-lado { grid-area: acoes; display: grid; grid-template-columns: minmax(0, 1fr); gap: .9rem; justify-items: start; }
+  .abertura-acoes { display: flex; flex-wrap: wrap; gap: .65rem; }
+  .convenios { display: flex; align-items: center; gap: .5rem; font-weight: 500; font-size: 1.02rem; }
+  .convenios svg { width: 1.15rem; height: 1.15rem; flex: none; color: var(--lima-texto); }
+  .abertura-foto { position: relative; margin-top: clamp(2rem, 4vw, 3rem); }
+  .abertura-foto img { width: 100%; height: clamp(260px, 44vw, 600px); object-fit: cover; object-position: 50% 58%; border-radius: var(--raio); background: var(--anil-escuro); }
+  /* cartao "agora": encosta na borda de baixo da foto */
+  .agora-cartao { position: absolute; right: clamp(1rem, 3vw, 2.5rem); bottom: -2.25rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: .3rem; width: min(24rem, calc(100% - 2rem)); padding: 1.1rem 1.3rem 1.2rem; border-radius: var(--raio); background: var(--anil-escuro); color: #fff; box-shadow: 0 18px 40px -18px rgba(46,27,87,.55); }
+  .agora-status { display: flex; align-items: center; gap: .5rem; font-weight: 500; color: #E4DFF2; }
+  .agora-cartao .ponto { background: var(--lima); }
+  .agora-cartao.fechado .ponto { background: #FF8F87; }
+  .agora-nivel { font: italic 600 clamp(1.9rem, 1.5rem + 1.4vw, 2.5rem)/1.05 var(--display); color: var(--lima); overflow-wrap: anywhere; }
+  .agora-cartao a { display: inline-flex; align-items: center; min-height: 44px; color: #fff; font-weight: 600; justify-self: start; }
+  .depois-abertura { height: 2.25rem; }
+  @media (max-width: 860px) {
+    .abertura-texto { grid-template-columns: minmax(0, 1fr); grid-template-areas: "titulo" "texto" "acoes"; }
+    .agora-cartao { position: relative; right: auto; bottom: auto; width: auto; margin: -2.5rem .75rem 0; }
+    .depois-abertura { height: 0; }
+  }
+  @media (max-width: 400px) { .abertura-acoes .btn { width: 100%; } }
+
+  /* secoes */
+  .secao { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
+  .secao-nevoa { background: var(--nevoa); }
+  .cabeca { display: grid; grid-template-columns: minmax(0, 1fr); gap: .8rem; max-width: 46rem; margin-bottom: 2.25rem; }
+  .cabeca p { color: var(--tinta-2); font-size: 1.15rem; }
+  .ressalva { font-size: 1rem; color: var(--tinta-2); }
+
+
+  /* ===== melhores horarios: a curva do dia com regua ===== */
+  .dias-chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1.5rem; }
+  .dias-chips button { min-height: 48px; min-width: 3.4rem; padding: .3rem .8rem; border: 1.5px solid var(--linha-forte); border-radius: var(--raio-p); background: var(--branco); color: var(--tinta); font: 600 1.02rem/1.1 var(--fonte); cursor: pointer; }
+  .dias-chips button:hover { border-color: var(--anil); }
+  .dias-chips button[aria-pressed="true"] { background: var(--anil); border-color: var(--anil); color: #fff; }
+  .dias-chips button small { display: block; font-size: .78rem; font-weight: 500; }
+  .mov-grade { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 17rem); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: start; }
+  .painel { padding: clamp(1rem, 2.5vw, 1.75rem); background: var(--branco); border-radius: var(--raio); border: 1px solid var(--linha); min-width: 0; }
+  .leitura { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .9rem; margin-bottom: 1.6rem; min-height: 3.6rem; }
+  .leitura-hora { font: italic 600 clamp(2.6rem, 2rem + 2vw, 3.4rem)/1 var(--display); color: var(--anil); }
+  .leitura-txt { font-size: 1.2rem; color: var(--tinta-2); }
+  .leitura-txt strong { color: var(--tinta); }
+  .grafico { position: relative; height: clamp(190px, 26vw, 280px); }
+  .grafico svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+  .faixa-tranquila { fill: var(--lima-claro); }
+  .curva { fill: none; stroke: var(--anil); stroke-width: 3.5; stroke-linejoin: round; }
+  .fechado-hachura { fill: url(#hachura); }
+  .marcador { position: absolute; top: 0; bottom: 0; width: 2px; margin-left: -1px; background: var(--tinta); pointer-events: none; }
+  .marcador-ponto { position: absolute; width: 18px; height: 18px; margin: -9px 0 0 -9px; border-radius: 50%; background: var(--branco); border: 4px solid var(--anil); pointer-events: none; }
+  .agora-tag { position: absolute; top: -.2rem; transform: translate(-50%, -100%); padding: .1rem .5rem; border-radius: 999px; background: var(--lima); color: var(--anil-escuro); font-size: .8rem; font-weight: 700; white-space: nowrap; pointer-events: none; }
+  .regua { position: absolute; z-index: 2; top: 0; bottom: 0; left: calc(100% / 34 - 22px); width: calc(100% * 32 / 34 + 44px); height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
+  .regua:focus-visible ~ .marcador { outline: 3px solid var(--anil); outline-offset: 4px; }
+  .eixo { display: grid; grid-template-columns: repeat(17, minmax(0, 1fr)); margin-top: .5rem; font-size: .85rem; color: var(--tinta-2); }
+  .eixo span { text-align: center; }
+  .eixo span:nth-child(3n+2), .eixo span:nth-child(3n+3) { visibility: hidden; }
+  .painel-legenda { display: flex; flex-wrap: wrap; gap: .3rem 1.25rem; margin-top: 1rem; font-size: .95rem; color: var(--tinta-2); }
+  .painel-legenda span { display: inline-flex; align-items: center; gap: .45rem; }
+  .painel-legenda i { width: 1.1rem; height: .8rem; border-radius: 3px; background: var(--lima-claro); box-shadow: inset 0 0 0 1px #C9DA97; }
+  .painel-legenda i.h { background: repeating-linear-gradient(135deg, #CFC9DD 0 2px, transparent 2px 6px); box-shadow: inset 0 0 0 1px var(--linha); }
+  .resumo { display: grid; gap: 1.25rem; margin: 0; }
+  .resumo dt { font-size: 1rem; color: var(--tinta-2); font-weight: 500; }
+  .resumo dd { margin: 0; font: italic 600 clamp(1.7rem, 1.4rem + 1vw, 2.2rem)/1.05 var(--display); color: var(--tinta); }
+  .resumo .vazio-txt { color: var(--lima-texto); }
+  .mov-dica { margin-top: 1.25rem; font-size: 1rem; color: var(--tinta-2); }
+  @media (max-width: 860px) { .mov-grade { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 480px) { .eixo span:nth-child(3n+1):not(:nth-child(6n+1)) { visibility: hidden; } }
+
+
+  /* ===== modalidades: coluna da esquerda fixa enquanto a lista rola ===== */
+  .mod-grade { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(2rem, 6vw, 5.5rem); align-items: start; }
+  .mod-fixo { position: sticky; top: 6.5rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .mod-fixo .cabeca { margin-bottom: 0; }
+  .mod-fixo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--raio); background: var(--linha); }
+  .mod-lista { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--linha); }
+  .mod-lista li { display: grid; grid-template-columns: minmax(0, 1fr); gap: .35rem; padding: 1.4rem 0; border-bottom: 1px solid var(--linha); }
+  .mod-lista h3 { font-size: clamp(1.8rem, 1.4rem + 1.4vw, 2.6rem); font-weight: 600; color: var(--anil); }
+  .mod-lista p { color: var(--tinta-2); max-width: 36rem; }
+  .mod-dias { font-size: 1rem; font-weight: 600; color: var(--tinta); }
+  @media (max-width: 860px) { .mod-grade { grid-template-columns: minmax(0, 1fr); } .mod-fixo { position: static; } }
+
+  /* ===== horario das aulas: a semana inteira ===== */
+  .semana { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: .6rem; }
+  .semana-dia { position: relative; display: grid; grid-template-rows: auto 1fr; min-width: 0; border-radius: var(--raio); background: var(--branco); border: 1px solid var(--linha); overflow: hidden; }
+  .semana-dia h3 { display: flex; align-items: baseline; justify-content: space-between; gap: .5rem; padding: .75rem .9rem; font-size: 1.35rem; color: var(--anil); border-bottom: 1px solid var(--linha); }
+  .semana-dia h3 small { font: 600 .8rem var(--fonte); color: var(--anil-escuro); background: var(--lima); padding: .05rem .5rem; border-radius: 999px; font-style: normal; }
+  .semana-dia.hoje { border-color: var(--anil); box-shadow: inset 0 0 0 1px var(--anil); }
+  .semana-dia ol { list-style: none; margin: 0; padding: .35rem .45rem .5rem; }
+  .semana-dia li + li { border-top: 1px solid var(--linha); }
+  .aula { position: relative; display: grid; gap: .05rem; padding: .6rem .45rem; border-radius: var(--raio-p); color: var(--tinta); text-decoration: none; }
+  .aula:hover { background: var(--nevoa); }
+  .aula-hora { font: italic 600 1.35rem/1.1 var(--display); color: var(--anil); }
+  .aula-nome { font-weight: 600; line-height: 1.25; }
+  .aula-prof { font-size: .9rem; color: var(--tinta-2); line-height: 1.3; }
+  .aula-acao { font-size: .92rem; font-weight: 600; color: var(--anil); text-decoration: underline; text-underline-offset: .18em; }
+  .aviso-grade { margin: -1rem 0 1.25rem; }
+  .semana-vazio { padding: .9rem; margin: 0; font-size: .95rem; color: var(--tinta-2); }
+  @media (max-width: 1100px) {
+    .semana { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(13.5rem, 40%); overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: .75rem; overscroll-behavior-x: contain; }
+    .semana-dia { scroll-snap-align: start; }
+  }
+  @media (max-width: 600px) { .semana { grid-auto-columns: 80%; } }
+
+  /* ===== estrutura: tour que rola de lado ===== */
+  .tour-cabeca { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1rem 2rem; margin-bottom: 2rem; }
+  .tour-cabeca .cabeca { margin-bottom: 0; }
+  .tour-setas { display: flex; gap: .5rem; }
+  .tour-setas button { display: grid; place-items: center; width: 52px; height: 52px; border: 1.5px solid var(--linha-forte); border-radius: 50%; background: var(--branco); color: var(--anil); cursor: pointer; }
+  .tour-setas button:hover:not(:disabled) { border-color: var(--anil); background: var(--nevoa); }
+  .tour-setas button:disabled { opacity: .4; cursor: default; }
+  .tour-setas svg { width: 22px; height: 22px; }
+  .tour { --recuo: max(var(--margem), calc((100% - var(--largura)) / 2 + var(--margem))); display: flex; gap: clamp(.75rem, 1.5vw, 1.25rem); overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--recuo); padding: 0 var(--recuo) 1rem; margin: 0; list-style: none; overscroll-behavior-x: contain; scrollbar-width: thin; }
+  .tour li { flex: none; scroll-snap-align: start; display: grid; gap: .6rem; }
+  .tour img { height: clamp(240px, 30vw, 400px); width: auto; max-width: 82vw; object-fit: cover; border-radius: var(--raio); background: var(--linha); }
+  .tour figcaption { display: grid; gap: .1rem; max-width: 30rem; }
+  .tour figcaption strong { font: italic 600 1.35rem/1.15 var(--display); color: var(--tinta); }
+  .tour figcaption span { color: var(--tinta-2); font-size: 1rem; }
+  .comodidades { list-style: none; margin: 2.25rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); gap: .6rem 2rem; }
+  .comodidades li { display: flex; align-items: center; gap: .6rem; font-weight: 500; }
+  .comodidades svg { width: 1.15rem; height: 1.15rem; flex: none; color: var(--lima-texto); }
+
+  /* ===== aula experimental ===== */
+  .experimental { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(1.75rem, 5vw, 4.5rem); align-items: start; }
+  .passos { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.75rem; }
+  .escolha { border: 0; margin: 0; padding: 0; min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: .8rem; }
+  .escolha legend { display: grid; grid-template-columns: auto minmax(0, 1fr); width: 100%; align-items: baseline; gap: .7rem; font: 600 1.3rem/1.2 var(--fonte); margin-bottom: .7rem; padding: 0; }
+  .num { color: var(--anil); font: italic 600 2rem/1 var(--display); }
+  .opcoes { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .opcoes label { position: relative; max-width: 100%; }
+  .opcoes input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+  .opcoes span { display: inline-flex; align-items: center; min-height: 48px; padding: .5rem 1.05rem; background: var(--branco); border: 1.5px solid var(--linha-forte); border-radius: var(--raio-p); font-weight: 500; cursor: pointer; }
+  .opcoes input:not(:checked):hover + span { border-color: var(--anil); }
+  .opcoes input:checked + span { background: var(--anil); border-color: var(--anil); color: #fff; }
+  .opcoes input:focus-visible + span { outline: 3px solid var(--anil); outline-offset: 2px; }
+  .dica-hora { padding: .75rem 1rem; background: var(--lima-claro); color: var(--anil-escuro); border-radius: var(--raio-p); }
+  .conversa { position: sticky; top: 6.5rem; display: grid; grid-template-rows: auto 1fr auto; background: var(--branco); border: 1px solid var(--linha); border-radius: var(--raio); overflow: hidden; min-width: 0; }
+  .conversa-topo { display: flex; align-items: center; gap: .75rem; padding: .75rem 1rem; background: var(--anil-escuro); color: #fff; }
+  .conversa-topo img { width: 2.75rem; height: 2.75rem; flex: none; border-radius: 50%; background: #fff; object-fit: contain; padding: .2rem; }
+  .conversa-topo > div { min-width: 0; }
+  .conversa-topo strong { display: block; font-size: 1.05rem; line-height: 1.2; }
+  .conversa-topo small { display: block; font-size: .875rem; color: #D4CCEA; }
+  .conversa-corpo { display: grid; align-content: end; min-height: 11rem; padding: 1.25rem 1rem; background: #EFEAE2; }
+  .previa { justify-self: end; max-width: 92%; margin: 0; padding: .7rem .9rem; background: #D9FDD3; color: #111B21; border-radius: 10px 0 10px 10px; white-space: pre-line; font-size: 1.02rem; line-height: 1.45; }
+  .conversa-acao { display: flex; align-items: center; gap: .8rem; padding: 1rem; border-top: 1px solid var(--linha); }
+  .conversa-acao .btn { flex: 1 1 auto; min-width: 0; }
+  .convenio-nota { margin-top: clamp(2rem, 5vw, 3rem); max-width: 46rem; color: var(--tinta-2); }
+  .convenio-nota strong { color: var(--tinta); }
+  @media (max-width: 960px) { .conversa { position: static; } }
+  @media (max-width: 860px) { .experimental { grid-template-columns: minmax(0, 1fr); } }
+
+  /* ===== contato: faixa anil ===== */
+  .contato { background: var(--anil-escuro); color: #fff; }
+  .contato h2 { color: #fff; }
+  .contato a { color: #fff; }
+  .contato-grade { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(2rem, 5vw, 4rem); }
+  .contato-dados { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; align-content: start; }
+  .contato-dados h3 { font: 500 1rem var(--fonte); color: #CFC7E6; margin-bottom: .2rem; }
+  .tel-grande { font: italic 600 clamp(1.9rem, 1.5rem + 1.8vw, 2.7rem)/1.05 var(--display); text-decoration: none; }
+  .tel-grande:hover { text-decoration: underline; }
+  .contato .a-preencher { color: var(--tinta); }
+  .contato .ressalva { color: #CFC7E6; margin-top: .4rem; }
+  .horarios { margin: 0; display: grid; grid-template-columns: minmax(0, 1fr); }
+  .horarios div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .25rem 1rem; padding: .4rem 0; border-bottom: 1px solid rgba(255,255,255,.18); }
+  .horarios div.hoje { font-weight: 700; color: var(--lima); }
+  .horarios dd { margin: 0; }
+  .mapa-capa { position: relative; display: grid; align-content: end; justify-items: start; gap: .9rem; min-height: 420px; padding: clamp(1.25rem, 3vw, 2rem); border-radius: var(--raio); overflow: hidden; isolation: isolate; background: var(--anil); }
+  .mapa-capa img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+  .mapa-capa::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(30,17,58,0) 30%, rgba(30,17,58,.88) 100%); }
+  .mapa-capa p { font-size: 1.15rem; font-weight: 500; }
+  .mapa-acoes { display: flex; flex-wrap: wrap; gap: .6rem; }
+  .contato .mapa-acoes .btn-linha { color: var(--anil); }
+  .mapa { width: 100%; height: 100%; min-height: 420px; border: 0; border-radius: var(--raio); background: var(--linha); }
+  @media (max-width: 820px) { .contato-grade { grid-template-columns: minmax(0, 1fr); } .mapa-capa, .mapa { min-height: 320px; } }
+
+  /* rodape */
+  .rodape { color: var(--tinta-2); padding-block: 1.3rem; font-size: .9375rem; }
+  .rodape-grade { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem 3rem; }
+  .rodape-grade > * { min-width: 0; max-width: 100%; }
+  .rodape-esq, .rodape-dir { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem 1.5rem; }
+  .rodape .marca img { height: 48px; }
+  .redes a { display: inline-flex; align-items: center; gap: .45rem; min-height: 44px; color: var(--tinta); font-weight: 500; }
+  .redes svg { width: 1.35rem; height: 1.35rem; flex: none; }
+  .redes { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; }
+  @media (max-width: 700px) { .rodape-grade, .rodape-esq, .rodape-dir { flex-direction: column; justify-content: center; text-align: center; } }
+
+  /* WhatsApp: barra do celular */
+  .barra { display: none; }
+  @media (max-width: 960px) {
+    .barra { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .5rem; position: fixed; z-index: 30; left: 0; right: 0; bottom: 0; padding: .5rem .75rem calc(.5rem + env(safe-area-inset-bottom)); background: var(--branco); border-top: 1px solid var(--linha); }
+    .barra .btn { min-height: 3.2rem; padding-inline: .5rem; }
+    body { padding-bottom: calc(4.3rem + env(safe-area-inset-bottom)); }
+  }
+</style>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topo">
+  <div class="envoltorio topo-grade">
+    <a class="marca" href="#"><img src="img/logo-topo.webp" width="380" height="226" alt="Academia Espaço Fitness, página inicial"></a>
+    <nav class="menu" aria-label="Principal">
+      <a href="#movimento">Melhores horários</a>
+      <a href="#modalidades">Modalidades</a>
+      <a href="#aulas">Aulas</a>
+      <a href="#estrutura">Estrutura</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <span class="topo-status" id="topo-status"><i class="ponto" aria-hidden="true"></i><span>Horário de funcionamento</span></span>
+    <a class="btn btn-lima" id="zap-topo" href="https://wa.me/5516991072787" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</header>
+
+<section class="abertura" aria-labelledby="titulo">
+  <div class="envoltorio">
+    <div class="abertura-texto">
+      <h1 id="titulo">Musculação e aulas no Centro de Cravinhos</h1>
+      <p>Aparelhos novos, spinning, dança, jiu-jítsu e professores por perto. Abrimos das 5h às 22h, de segunda a sexta.</p>
+      <div class="abertura-lado">
+        <div class="abertura-acoes">
+          <a class="btn" id="zap-exp-topo" href="https://wa.me/5516991072787" target="_blank" rel="noopener">Marcar aula experimental</a>
+          <a class="btn btn-linha" href="#aulas">Horário das aulas</a>
+        </div>
+        <p class="convenios"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="m4 12.5 5 5L20 6.5"/></svg>Aceitamos Wellhub, TotalPass e outros convênios</p>
+      </div>
+    </div>
+    <div class="abertura-foto">
+      <img src="img/sala-hexagonos.webp" srcset="img/sala-hexagonos.webp 1400w, img/sala-hexagonos-grande.webp 2200w" sizes="(min-width: 1240px) 1160px, 94vw" width="1400" height="1050" alt="Sala de musculação da Espaço Fitness com luminárias hexagonais de LED, parede de tijolinho e aparelhos novos" fetchpriority="high">
+      <div class="agora-cartao" id="agora-cartao" aria-live="polite">
+        <span class="agora-status"><i class="ponto" aria-hidden="true"></i><span id="agora-status">Horário de funcionamento</span></span>
+        <span class="agora-nivel" id="agora-nivel">&nbsp;</span>
+        <a href="#movimento">Ver o movimento do dia</a>
+      </div>
+    </div>
+  </div>
+  <div class="depois-abertura"></div>
+</section>
+
+<main id="conteudo">
+  <section class="secao secao-nevoa" id="movimento" aria-labelledby="titulo-movimento">
+    <div class="envoltorio">
+      <div class="cabeca">
+        <h2 id="titulo-movimento">Melhores horários</h2>
+        <p>O movimento de cada hora, segundo o Google. Escolha o dia e arraste o gráfico para ver quando a academia costuma estar mais tranquila.</p>
+      </div>
+      <div class="dias-chips" id="dias-mov" role="group" aria-label="Dia da semana do gráfico"></div>
+      <div class="mov-grade">
+        <div class="painel">
+          <p class="leitura" aria-live="polite"><span class="leitura-hora" id="leitura-hora">&nbsp;</span><span class="leitura-txt" id="leitura-txt">&nbsp;</span></p>
+          <div class="grafico" id="grafico">
+            <svg viewBox="0 0 1000 100" preserveAspectRatio="none" aria-hidden="true">
+              <defs><pattern id="hachura" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="2.5" height="8" fill="#CFC9DD"/></pattern></defs>
+              <rect class="faixa-tranquila" x="0" y="67.8" width="1000" height="32.2"/>
+              <g id="fechados"></g>
+              <path class="curva" id="curva" d="M0,100" vector-effect="non-scaling-stroke"/>
+            </svg>
+            <span class="agora-tag" id="agora-tag" hidden>agora</span>
+            <input class="regua" id="regua" type="range" min="5" max="21" step="1" value="19" aria-label="Hora do dia">
+            <span class="marcador" id="marcador"></span>
+            <span class="marcador-ponto" id="marcador-ponto"></span>
+          </div>
+          <div class="eixo" aria-hidden="true" id="eixo"></div>
+          <p class="painel-legenda"><span><i aria-hidden="true"></i>faixa tranquila</span><span><i class="h" aria-hidden="true"></i>fechado</span></p>
+        </div>
+        <div>
+          <dl class="resumo" id="resumo" aria-live="polite"></dl>
+          <p class="mov-dica">É uma média das últimas semanas: feriado, começo de mês e dia de chuva mudam o movimento.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="modalidades" aria-labelledby="titulo-modalidades">
+    <div class="envoltorio mod-grade">
+      <div class="mod-fixo">
+        <div class="cabeca">
+          <h2 id="titulo-modalidades">Modalidades</h2>
+          <p>Do primeiro treino ao aluno de 60 anos ou mais: nossos professores montam o treino e acompanham a execução.</p>
+        </div>
+        <img src="img/sala-aulas.webp" width="1400" height="788" loading="lazy" alt="Sala de aulas coletivas com espelho, piso claro, parede de tijolinho e luz de LED azul">
+        <p class="ressalva"><span class="a-preencher">A confirmar: ainda temos yoga e TaeBo? Há turma infantil de jiu-jítsu?</span></p>
+      </div>
+      <ul class="mod-lista" id="mod-lista"></ul>
+    </div>
+  </section>
+
+  <section class="secao secao-nevoa" id="aulas" aria-labelledby="titulo-aulas">
+    <div class="envoltorio">
+      <div class="cabeca">
+        <h2 id="titulo-aulas">Horário das aulas</h2>
+        <p>A semana inteira das aulas em grupo. Para participar, toque na aula e envie a mensagem pelo WhatsApp.</p>
+      </div>
+      <p class="ressalva aviso-grade" id="aviso-grade"><span class="a-preencher">Grade de exemplo: os horários, as aulas e os professores reais vêm da academia.</span></p>
+      <div class="semana" id="semana" tabindex="0" role="region" aria-label="Aulas da semana"></div>
+    </div>
+  </section>
+
+  <section class="secao" id="estrutura" aria-labelledby="titulo-estrutura">
+    <div class="envoltorio tour-cabeca">
+      <div class="cabeca">
+        <h2 id="titulo-estrutura">Por dentro da academia</h2>
+        <p>Dois andares ventilados e climatizados, com lanchonete e loja na entrada.</p>
+      </div>
+      <div class="tour-setas">
+        <button type="button" id="tour-ant" aria-label="Foto anterior" aria-controls="tour"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" id="tour-prox" aria-label="Próxima foto" aria-controls="tour"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+    <ul class="tour" id="tour" tabindex="0" aria-label="Fotos da academia">
+      <li><figure><img src="img/fachada.webp" width="1400" height="1050" loading="lazy" alt="Fachada da Espaço Fitness: prédio de concreto com o letreiro da academia, na Rua Saldanha Marinho"><figcaption><strong>Fachada</strong><span>Rua Saldanha Marinho, 274, no Centro.</span></figcaption></figure></li>
+      <li><figure><img src="img/recepcao.webp" width="1400" height="1050" loading="lazy" alt="Recepção com balcão de tijolinho, lanchonete e teto de madeira"><figcaption><strong>Recepção e lanchonete</strong><span>Para o lanche antes ou depois do treino.</span></figcaption></figure></li>
+      <li><figure><img src="img/loja.webp" width="1050" height="1400" loading="lazy" alt="Corredor da entrada com a vitrine da loja de roupas e artigos esportivos"><figcaption><strong>Loja</strong><span>Roupas e artigos esportivos.</span></figcaption></figure></li>
+      <li><figure><img src="img/vista-de-cima.webp" width="1400" height="1050" loading="lazy" alt="Vista de cima da sala de musculação, com dezenas de aparelhos e alunos treinando"><figcaption><strong>Musculação</strong><span>Aparelhos novos e área de peso livre.</span></figcaption></figure></li>
+      <li><figure><img src="img/led-azul.webp" width="1400" height="1050" loading="lazy" alt="Andar de cima com aparelhos de musculação e faixa de LED azul no teto"><figcaption><strong>Andar de cima</strong><span>Mais aparelhos, com iluminação de LED.</span></figcaption></figure></li>
+      <li><figure><img src="img/bikes.webp" width="1400" height="1050" loading="lazy" alt="Área de aparelhos com um painel grande de aula de spinning na parede"><figcaption><strong>Área de aparelhos</strong><span>Espaço amplo entre os equipamentos.</span></figcaption></figure></li>
+    </ul>
+    <div class="envoltorio">
+      <ul class="comodidades" aria-label="Comodidades">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="m4 12.5 5 5L20 6.5"/></svg>Ar-condicionado</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="m4 12.5 5 5L20 6.5"/></svg>Vestiário</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="m4 12.5 5 5L20 6.5"/></svg>Acessível para cadeira de rodas</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="m4 12.5 5 5L20 6.5"/></svg>Wi-Fi</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="m4 12.5 5 5L20 6.5"/></svg>Lanchonete</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="m4 12.5 5 5L20 6.5"/></svg>Loja de artigos esportivos</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="secao secao-nevoa" id="experimental" aria-labelledby="titulo-experimental">
+    <div class="envoltorio">
+      <div class="experimental">
+        <div class="passos">
+          <div class="cabeca" style="margin-bottom:0">
+            <h2 id="titulo-experimental">Faça uma aula experimental</h2>
+            <p>Escolha o que deseja experimentar e quando prefere vir. A mensagem para o WhatsApp sai pronta.</p>
+          </div>
+          <form class="passos" id="form-exp" novalidate>
+            <fieldset class="escolha">
+              <legend><span class="num" aria-hidden="true">1</span><span>O que você quer experimentar?</span></legend>
+              <div class="opcoes" id="op-modalidade"></div>
+            </fieldset>
+            <fieldset class="escolha">
+              <legend><span class="num" aria-hidden="true">2</span><span>Quando prefere vir?</span></legend>
+              <div class="opcoes" id="op-periodo"></div>
+              <p class="dica-hora" id="dica-hora" aria-live="polite"></p>
+            </fieldset>
+          </form>
+        </div>
+        <div class="conversa">
+          <div class="conversa-topo">
+            <img src="img/logo-topo.webp" width="380" height="226" alt="" loading="lazy">
+            <div><strong>Espaço Fitness</strong><small>WhatsApp da academia</small></div>
+          </div>
+          <div class="conversa-corpo" aria-live="polite">
+            <p class="previa" id="previa-exp"></p>
+          </div>
+          <div class="conversa-acao">
+            <span class="num" aria-hidden="true">3</span>
+            <a class="btn" id="zap-exp" href="https://wa.me/5516991072787" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>Enviar pelo WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <p class="convenio-nota"><strong>Tem convênio de academia?</strong> Aceitamos <strong>Wellhub</strong> (o antigo Gympass, a partir do plano Silver), <strong>TotalPass</strong> e outros convênios. <span class="a-preencher">Quais são os outros?</span></p>
+    </div>
+  </section>
+
+  <section class="secao contato" id="contato" aria-labelledby="titulo-contato">
+    <div class="envoltorio contato-grade">
+      <div class="contato-dados">
+        <h2 id="titulo-contato">Como chegar</h2>
+        <div><h3>Telefone</h3><a class="tel-grande" href="tel:+551639513660">(16) 3951-3660</a></div>
+        <div><h3>WhatsApp</h3><a class="tel-grande" id="zap-contato" href="https://wa.me/5516991072787" target="_blank" rel="noopener">(16) 99107-2787</a>
+          <p class="ressalva"><span class="a-preencher">Confirmar: a bio também cita o (16) 99788-5062.</span></p></div>
+        <div><h3>Horário</h3><dl class="horarios" id="horarios"></dl>
+          <p class="ressalva"><span class="a-preencher">Horário do Google. O do Wellhub é diferente: confirmar.</span></p></div>
+      </div>
+      <div class="mapa-capa" id="mapa-capa">
+        <img src="img/fachada.webp" width="1400" height="1050" loading="lazy" alt="">
+        <p>Rua Saldanha Marinho, 274<br>Centro, Cravinhos</p>
+        <div class="mapa-acoes">
+          <button class="btn btn-lima" type="button" id="mostrar-mapa">Mostrar mapa</button>
+          <a class="btn btn-linha" href="https://www.google.com/maps/dir/?api=1&amp;destination=-21.3434157,-47.732518" target="_blank" rel="noopener">Traçar rota</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="envoltorio rodape-grade">
+    <div class="rodape-esq">
+      <a class="marca" href="#"><img src="img/logo-topo.webp" width="380" height="226" loading="lazy" alt="Academia Espaço Fitness. Voltar ao topo"></a>
+      <p>© 2026 Espaço Fitness Academia</p>
+    </div>
+    <div class="rodape-dir">
+      <div class="redes">
+        <a href="https://www.instagram.com/ef_academia/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>@ef_academia</a>
+        <a href="https://facebook.com/espaco.fitness.cravinhos" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8.1v3h2.5V21h2.9Z"/></svg>Facebook</a>
+      </div>
+      <p>CNPJ <span class="a-preencher">a confirmar</span></p>
+    </div>
+  </div>
+</footer>
+
+<nav class="barra" aria-label="Contato rápido">
+  <a class="btn btn-linha" href="tel:+551639513660">Ligar</a>
+  <a class="btn" id="zap-barra" href="https://wa.me/5516991072787" target="_blank" rel="noopener">WhatsApp</a>
+</nav>
+
+<script>
+/* ============================================================
+   DADOS - o que a academia muda fica aqui em cima
+   ============================================================ */
+const WHATSAPP = "5516991072787";
+/* horario de funcionamento (Google Maps, a confirmar): 0 = domingo */
+const HORARIO = {
+  0: [["08:00", "12:00"]],
+  1: [["05:00", "22:00"]], 2: [["05:00", "22:00"]], 3: [["05:00", "22:00"]],
+  4: [["05:00", "22:00"]], 5: [["05:00", "22:00"]],
+  6: [["08:00", "12:00"]],
+};
+/* movimento por hora, 0 a 100 (Google Maps, "horarios de pico", out/2026). chave = hora cheia */
+const MOVIMENTO = {
+  0: { 8: 17, 9: 24, 10: 26, 11: 21 },
+  1: { 5: 25, 6: 33, 7: 38, 8: 37, 9: 34, 10: 33, 11: 35, 12: 36, 13: 35, 14: 37, 15: 43, 16: 55, 17: 77, 18: 96, 19: 100, 20: 78, 21: 45 },
+  2: { 5: 25, 6: 32, 7: 37, 8: 38, 9: 39, 10: 38, 11: 39, 12: 37, 13: 34, 14: 32, 15: 36, 16: 46, 17: 66, 18: 85, 19: 89, 20: 70, 21: 42 },
+  3: { 5: 23, 6: 29, 7: 31, 8: 28, 9: 26, 10: 25, 11: 28, 12: 30, 13: 31, 14: 34, 15: 40, 16: 50, 17: 66, 18: 82, 19: 86, 20: 70, 21: 43 },
+  4: { 5: 23, 6: 30, 7: 33, 8: 31, 9: 29, 10: 27, 11: 26, 12: 26, 13: 25, 14: 26, 15: 30, 16: 37, 17: 50, 18: 62, 19: 66, 20: 55, 21: 35 },
+  5: { 5: 19, 6: 24, 7: 28, 8: 29, 9: 31, 10: 30, 11: 30, 12: 28, 13: 25, 14: 25, 15: 27, 16: 30, 17: 38, 18: 45, 19: 48, 20: 40, 21: 26 },
+  6: { 8: 28, 9: 38, 10: 38, 11: 30 },
+};
+
+/* ============================================================ */
+const $ = (s) => document.querySelector(s);
+const zap = (t) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(t)}`;
+const DIAS = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
+const CURTO = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
+
+/* agora em Cravinhos (horario de Brasilia), independente do fuso do aparelho */
+function agoraBrasilia() {
+  const p = Object.fromEntries(new Intl.DateTimeFormat("en-US", { timeZone: "America/Sao_Paulo", hour: "2-digit", minute: "2-digit", hourCycle: "h23", weekday: "short" }).formatToParts(new Date()).map((x) => [x.type, x.value]));
+  const dia = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(p.weekday);
+  return { dia, hora: Number(p.hour), min: Number(p.hour) * 60 + Number(p.minute) };
+}
+const paraMin = (h) => { const [a, b] = h.split(":").map(Number); return a * 60 + b; };
+const hora = (h) => h.endsWith(":00") ? `${Number(h.slice(0, 2))}h` : h.replace(":", "h");
+function nivel(v) { return v <= 35 ? "tranquilo" : v <= 55 ? "moderado" : v <= 80 ? "movimentado" : "cheio"; }
+
+function situacao() {
+  const a = agoraBrasilia(), hoje = HORARIO[a.dia] || [];
+  const faixa = hoje.find(([i, f]) => a.min >= paraMin(i) && a.min < paraMin(f));
+  if (faixa) return { aberto: true, texto: `Aberto agora, fecha às ${hora(faixa[1])}` };
+  const depois = hoje.find(([i]) => paraMin(i) > a.min);
+  if (depois) return { aberto: false, texto: `Fechado agora, abre às ${hora(depois[0])}` };
+  for (let k = 1; k <= 7; k++) {
+    const d = (a.dia + k) % 7, f = HORARIO[d];
+    if (f && f.length) return { aberto: false, texto: `Fechado agora, abre ${k === 1 ? "amanhã" : DIAS[d].toLowerCase()} às ${hora(f[0][0])}` };
+  }
+  return { aberto: false, texto: "Fechado agora" };
+}
+function montarAgora() {
+  const s = situacao(), a = agoraBrasilia(), v = (MOVIMENTO[a.dia] || {})[a.hora];
+  const mov = s.aberto && v !== undefined ? nivel(v) : "";
+  $("#topo-status").classList.toggle("fechado", !s.aberto);
+  $("#topo-status span").textContent = s.texto + (mov ? `, ${mov}` : "");
+  $("#agora-cartao").classList.toggle("fechado", !s.aberto);
+  $("#agora-status").textContent = s.texto;
+  $("#agora-nivel").textContent = mov ? `Costuma estar ${mov}` : "Veja a hora mais tranquila";
+}
+
+
+/* ---------- melhores horarios: curva do dia ---------- */
+const H0 = 5, H1 = 22, SLOTS = H1 - H0;              /* eixo fixo das 5h as 22h, igual em todos os dias */
+const xDe = (h) => (h - H0) / SLOTS * 1000;          /* borda esquerda da hora h, em unidades do svg */
+const yDe = (v) => 100 - v * .92;                     /* 100% de movimento fica um pouco abaixo do topo */
+let diaMov = agoraBrasilia().dia, horaMov = null;
+/* horas mais vazias: as de menor movimento, ate 4 pontos acima do minimo do dia */
+function vazias(dia) {
+  const m = MOVIMENTO[dia], vals = Object.values(m), min = Math.min(...vals);
+  return Object.keys(m).map(Number).filter((h) => m[h] <= min + 4);
+}
+/* junta horas seguidas em faixas: [5,6,9,10] -> "5h às 7h e 9h às 11h" */
+function faixas(horas) {
+  const out = [];
+  horas.forEach((h) => { const u = out[out.length - 1]; if (u && u[1] === h) u[1] = h + 1; else out.push([h, h + 1]); });
+  return out.map(([a, b]) => `${a}h às ${b}h`).join(" e ");
+}
+function desenharCurva() {
+  const m = MOVIMENTO[diaMov], hs = Object.keys(m).map(Number).sort((a, b) => a - b);
+  /* pontos no meio de cada hora, com as pontas esticadas ate a borda do horario aberto */
+  const pts = hs.map((h) => [xDe(h) + 500 / SLOTS, yDe(m[h])]);
+  pts.unshift([xDe(hs[0]), yDe(m[hs[0]])]); pts.push([xDe(hs[hs.length - 1] + 1), yDe(m[hs[hs.length - 1]])]);
+  /* curva suave (Catmull-Rom convertida em Bezier) */
+  let d = `M${pts[0][0].toFixed(1)},${pts[0][1].toFixed(1)}`;
+  for (let i = 0; i < pts.length - 1; i++) {
+    const p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || p2;
+    const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6], c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
+    d += ` C${c1[0].toFixed(1)},${c1[1].toFixed(1)} ${c2[0].toFixed(1)},${c2[1].toFixed(1)} ${p2[0].toFixed(1)},${p2[1].toFixed(1)}`;
+  }
+  $("#curva").setAttribute("d", d);
+  /* horas fechadas com hachura */
+  const abre = hs[0], fecha = hs[hs.length - 1] + 1;
+  $("#fechados").innerHTML = (abre > H0 ? `<rect class="fechado-hachura" x="0" y="0" width="${xDe(abre)}" height="100"/>` : "")
+    + (fecha < H1 ? `<rect class="fechado-hachura" x="${xDe(fecha)}" y="0" width="${1000 - xDe(fecha)}" height="100"/>` : "");
+  /* "agora" so no dia de hoje, com a academia aberta */
+  const a = agoraBrasilia(), tag = $("#agora-tag"), mostra = diaMov === a.dia && m[a.hora] !== undefined && situacao().aberto;
+  tag.hidden = !mostra;
+  if (mostra) tag.style.left = `${(a.hora - H0 + .5) / SLOTS * 100}%`;
+}
+function marcarHora() {
+  const h = horaMov, v = MOVIMENTO[diaMov][h], pct = (h - H0 + .5) / SLOTS * 100;
+  $("#marcador").style.left = `${pct}%`;
+  const ponto = $("#marcador-ponto");
+  ponto.hidden = v === undefined;
+  if (v !== undefined) { ponto.style.left = `${pct}%`; ponto.style.top = `${yDe(v)}%`; }
+  $("#leitura-hora").textContent = `${h}h`;
+  $("#leitura-txt").innerHTML = v === undefined ? `${DIAS[diaMov].toLowerCase()}: <strong>fechado</strong>` : `${DIAS[diaMov].toLowerCase()}, costuma estar <strong>${nivel(v)}</strong>`;
+  const r = $("#regua");
+  r.value = h;
+  r.setAttribute("aria-valuetext", `${DIAS[diaMov]}, ${h}h: ${v === undefined ? "fechado" : nivel(v)}`);
+}
+function montarResumo() {
+  const m = MOVIMENTO[diaMov], hs = Object.keys(m).map(Number), vz = vazias(diaMov);
+  const max = Math.max(...Object.values(m)), pico = hs.filter((h) => m[h] === max);
+  const noite = hs.filter((h) => h >= 17), melhorNoite = noite.length ? noite.reduce((x, y) => (m[y] < m[x] ? y : x)) : null;
+  $("#resumo").innerHTML = `<div><dt>Mais tranquila</dt><dd class="vazio-txt">${faixas(vz)}</dd></div>
+    ${melhorNoite !== null ? `<div><dt>Depois das 17h, a mais tranquila</dt><dd>${melhorNoite}h</dd></div>` : ""}
+    <div><dt>Mais cheia</dt><dd>${pico.map((h) => `${h}h`).join(" e ")}</dd></div>`;
+}
+function montarDiasMov() {
+  const hoje = agoraBrasilia().dia;
+  $("#dias-mov").innerHTML = [1, 2, 3, 4, 5, 6, 0].map((d) =>
+    `<button type="button" data-dia="${d}" aria-pressed="${d === diaMov}">${CURTO[d]}${d === hoje ? "<small>hoje</small>" : ""}</button>`).join("");
+}
+function escolherDiaMov(d, manterHora) {
+  diaMov = d;
+  const a = agoraBrasilia(), m = MOVIMENTO[d];
+  /* hora inicial: a de agora (se hoje e aberto), senao a mais tranquila do dia */
+  if (!manterHora || m[horaMov] === undefined) horaMov = (d === a.dia && m[a.hora] !== undefined) ? a.hora : vazias(d)[0];
+  document.querySelectorAll("#dias-mov button").forEach((b) => b.setAttribute("aria-pressed", String(Number(b.dataset.dia) === d)));
+  desenharCurva(); marcarHora(); montarResumo();
+}
+$("#eixo").innerHTML = Array.from({ length: SLOTS }, (_, i) => `<span>${H0 + i}h</span>`).join("");
+$("#dias-mov").addEventListener("click", (e) => { const b = e.target.closest("button[data-dia]"); if (b) escolherDiaMov(Number(b.dataset.dia), true); });
+$("#regua").addEventListener("input", (e) => { horaMov = Number(e.target.value); marcarHora(); });
+montarDiasMov(); escolherDiaMov(diaMov, false);
+
+
+/* ---------- modalidades (com os dias que tem aula, tirados da grade) ---------- */
+const MODALIDADES = [
+  ["Musculação", "Aparelhos novos e área de peso livre, com acompanhamento dos professores."],
+  ["Spinning", "Aula de ciclismo indoor em grupo, com música."],
+  ["Dança", "Aula de dança em grupo, com coreografias de vários ritmos."],
+  ["Jiu-jítsu", "Arte marcial de solo, com foco em técnica e defesa pessoal."],
+  ["Treinamento funcional", "Exercícios com o peso do corpo e acessórios, em circuito."],
+  ["Jump", "Aula aeróbica em minitrampolim, com música."],
+  ["Ginástica localizada", "Exercícios para pernas, glúteos, braços e abdômen."],
+  ["Alongamento", "Exercícios de flexibilidade, antes ou depois do treino."],
+];
+
+/* ---------- horario das aulas ----------
+   EXEMPLO ate a academia mandar a grade: cada linha = { dia (0 = domingo), hora, aula, prof }.
+   Com a grade real, trocar a lista e mudar GRADE_DE_EXEMPLO para false. */
+const GRADE_DE_EXEMPLO = true;
+const AULAS = [
+  { dia: 1, hora: "07:00", aula: "Spinning" }, { dia: 1, hora: "09:00", aula: "Ginástica localizada" }, { dia: 1, hora: "19:00", aula: "Spinning" }, { dia: 1, hora: "20:00", aula: "Jiu-jítsu" },
+  { dia: 2, hora: "07:00", aula: "Treinamento funcional" }, { dia: 2, hora: "18:00", aula: "Treinamento funcional" }, { dia: 2, hora: "19:30", aula: "Dança" },
+  { dia: 3, hora: "07:00", aula: "Spinning" }, { dia: 3, hora: "09:00", aula: "Ginástica localizada" }, { dia: 3, hora: "19:00", aula: "Spinning" }, { dia: 3, hora: "20:00", aula: "Jiu-jítsu" },
+  { dia: 4, hora: "07:00", aula: "Treinamento funcional" }, { dia: 4, hora: "18:00", aula: "Treinamento funcional" }, { dia: 4, hora: "19:30", aula: "Dança" },
+  { dia: 5, hora: "07:00", aula: "Spinning" }, { dia: 5, hora: "18:00", aula: "Jump" },
+  { dia: 6, hora: "09:00", aula: "Alongamento" },
+];
+const ORDEM = [1, 2, 3, 4, 5, 6, 0];
+const marcaEx = (t) => GRADE_DE_EXEMPLO ? `<span class="a-preencher">${t}</span>` : t;
+/* "seg, qua e sex" */
+function listaDias(ds) {
+  const n = ds.map((d) => CURTO[d].toLowerCase());
+  return n.length > 1 ? `${n.slice(0, -1).join(", ")} e ${n[n.length - 1]}` : n[0];
+}
+function montarModalidades() {
+  $("#mod-lista").innerHTML = MODALIDADES.map(([nome, txt]) => {
+    const ds = ORDEM.filter((d) => AULAS.some((a) => a.dia === d && a.aula === nome));
+    const quando = nome === "Musculação" ? "Todos os dias, no horário da academia" : ds.length ? marcaEx(`Aulas: ${listaDias(ds)}`) : "";
+    return `<li><h3>${nome}</h3><p>${txt}</p>${quando ? `<p class="mod-dias">${quando}</p>` : ""}</li>`;
+  }).join("");
+}
+function montarSemana() {
+  $("#aviso-grade").hidden = !GRADE_DE_EXEMPLO;
+  const hoje = agoraBrasilia().dia;
+  $("#semana").innerHTML = ORDEM.map((d) => {
+    const doDia = AULAS.filter((a) => a.dia === d).sort((a, b) => a.hora.localeCompare(b.hora));
+    const itens = doDia.map((a) => {
+      const quando = `${DIAS[d].toLowerCase()} às ${hora(a.hora)}`;
+      const msg = `Olá! Gostaria de participar da aula de ${a.aula.toLowerCase()} de ${quando}.`;
+      return `<li><a class="aula" href="${zap(msg)}" target="_blank" rel="noopener"><span class="aula-hora">${hora(a.hora)}</span><span class="aula-nome">${a.aula}</span>
+        ${a.prof ? `<span class="aula-prof">Professor(a) ${a.prof}</span>` : ""}<span class="aula-acao">Participar<span class="so-leitor"> da aula de ${a.aula.toLowerCase()} de ${quando}</span></span></a></li>`;
+    }).join("");
+    return `<section class="semana-dia${d === hoje ? " hoje" : ""}" aria-label="${DIAS[d]}${d === hoje ? ", hoje" : ""}">
+      <h3>${DIAS[d]}${d === hoje ? "<small>hoje</small>" : ""}</h3>
+      ${itens ? `<ol>${itens}</ol>` : `<p class="semana-vazio">Sem aulas em grupo. A musculação funciona no horário da academia.</p>`}</section>`;
+  }).join("");
+  /* no celular a semana rola de lado: comeca no dia de hoje, sem mexer na rolagem da pagina */
+  const el = $("#semana"), dia = el.querySelector(".hoje");
+  if (dia && el.scrollWidth > el.clientWidth) el.scrollLeft = dia.offsetLeft - el.offsetLeft;
+}
+
+/* ---------- tour: setas andam uma foto por vez (scrollTo na posicao exata) ---------- */
+const tour = $("#tour");
+/* posicao de cada foto = distancia ate a primeira (o recuo do carrossel vem como formula no getComputedStyle) */
+function posTour() { const fs = [...tour.children]; return fs.map((f) => f.offsetLeft - fs[0].offsetLeft); }
+function irTour(passo) {
+  const pos = posTour();
+  let atual = 0;
+  pos.forEach((x, i) => { if (Math.abs(x - tour.scrollLeft) < Math.abs(pos[atual] - tour.scrollLeft)) atual = i; });
+  const i = Math.max(0, Math.min(pos.length - 1, atual + passo));
+  tour.scrollTo({ left: pos[i], behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+}
+function setasTour() {
+  $("#tour-ant").disabled = tour.scrollLeft <= 2;
+  $("#tour-prox").disabled = tour.scrollLeft >= tour.scrollWidth - tour.clientWidth - 2;
+}
+$("#tour-ant").addEventListener("click", () => irTour(-1));
+$("#tour-prox").addEventListener("click", () => irTour(1));
+tour.addEventListener("scroll", setasTour, { passive: true });
+addEventListener("resize", setasTour);
+
+/* ---------- aula experimental ---------- */
+const PERIODOS = [["manha", "De manhã", 5, 12], ["tarde", "À tarde", 12, 17], ["noite", "À noite", 17, 22]];
+function opcao(nome, valor, texto, marcado) {
+  return `<label><input type="radio" name="${nome}" value="${valor}"${marcado ? " checked" : ""}><span>${texto}</span></label>`;
+}
+$("#op-modalidade").innerHTML = MODALIDADES.slice(0, 7).map(([m], i) => opcao("modalidade", m, m, i === 0)).join("");
+$("#op-periodo").innerHTML = PERIODOS.map(([v, t], i) => opcao("periodo", v, t, i === 2)).join("");
+/* a hora mais tranquila do periodo, olhando de segunda a sexta */
+function melhorHora(de, ate) {
+  let melhor = null;
+  for (let h = de; h < ate; h++) {
+    const vals = [1, 2, 3, 4, 5].map((d) => MOVIMENTO[d][h]).filter((v) => v !== undefined);
+    if (!vals.length) continue;
+    const media = vals.reduce((a, b) => a + b, 0) / vals.length;
+    if (!melhor || media < melhor.media) melhor = { h, media };
+  }
+  return melhor;
+}
+function montarExperimental() {
+  const f = $("#form-exp"), mod = f.modalidade.value, per = PERIODOS.find((p) => p[0] === f.periodo.value);
+  const m = melhorHora(per[2], per[3]);
+  $("#dica-hora").innerHTML = m ? `${per[1]}, o horário mais tranquilo durante a semana costuma ser <strong>às ${m.h}h</strong>.` : "";
+  const texto = `Olá! Gostaria de marcar uma aula experimental de ${mod.toLowerCase()}, ${per[1].toLowerCase()}. Qual o melhor dia?`;
+  $("#previa-exp").textContent = texto;
+  $("#zap-exp").href = zap(texto);
+}
+$("#form-exp").addEventListener("change", montarExperimental);
+$("#form-exp").addEventListener("submit", (e) => e.preventDefault());
+
+/* ---------- contato ---------- */
+function montarHorarios() {
+  const hoje = agoraBrasilia().dia;
+  $("#horarios").innerHTML = ORDEM.map((d) => {
+    const f = HORARIO[d];
+    const txt = f.length ? f.map(([i, fi]) => `${hora(i)} às ${hora(fi)}`).join(" e ") : "Fechado";
+    return `<div class="${d === hoje ? "hoje" : ""}"><dt>${DIAS[d]}${d === hoje ? " (hoje)" : ""}</dt><dd>${txt}</dd></div>`;
+  }).join("");
+}
+/* o mapa do Google so carrega no clique (sem cookies de terceiros ate a pessoa pedir) */
+$("#mostrar-mapa").addEventListener("click", () => {
+  const f = document.createElement("iframe");
+  f.className = "mapa"; f.title = "Mapa: Espaço Fitness na Rua Saldanha Marinho, 274, Cravinhos";
+  f.src = "https://maps.google.com/maps?q=-21.3434157,-47.732518&hl=pt-BR&z=17&output=embed";
+  f.referrerPolicy = "no-referrer-when-downgrade";
+  $("#mapa-capa").replaceWith(f);
+  f.focus();
+});
+
+/* ---------- WhatsApp ---------- */
+const experimental = zap("Olá! Gostaria de marcar uma aula experimental na Espaço Fitness. Qual o melhor dia?");
+["#zap-exp-topo", "#zap-barra"].forEach((s) => { $(s).href = experimental; });
+$("#zap-topo").href = zap("Olá! Vim pelo site da Espaço Fitness e gostaria de mais informações.");
+$("#zap-contato").href = zap("Olá! Gostaria de saber mais sobre a Espaço Fitness.");
+
+montarAgora(); montarModalidades(); montarSemana(); setasTour(); montarExperimental(); montarHorarios();
+setInterval(() => { montarAgora(); desenharCurva(); }, 60000);
+</script>
+</body>
+</html>
