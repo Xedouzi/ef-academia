@@ -320,12 +320,12 @@
     <div class="envoltorio mov">
       <div class="cabeca">
         <h2 id="titulo-movimento">Melhores horários</h2>
-        <p>O movimento da academia hora a hora, a semana inteira, segundo o Google. Venha quando estiver mais tranquilo.</p>
+        <p>O movimento da academia hora a hora, a semana inteira, segundo o Google. Venha nos horários de menor movimento.</p>
       </div>
       <div class="mov-lado">
         <div>
           <div class="colmeia" id="colmeia" role="img" aria-label="Movimento por hora em cada dia da semana"></div>
-          <p class="legenda"><span><i class="hex" data-n="0" aria-hidden="true"></i>tranquilo</span><span><i class="hex" data-n="1" aria-hidden="true"></i>moderado</span><span><i class="hex" data-n="2" aria-hidden="true"></i>movimentado</span><span><i class="hex" data-n="3" aria-hidden="true"></i>cheio</span><span><i class="hex" data-n="f" aria-hidden="true"></i>fechado</span></p>
+          <p class="legenda"><span><i class="hex" data-n="0" aria-hidden="true"></i>pouco movimentado</span><span><i class="hex" data-n="1" aria-hidden="true"></i>moderado</span><span><i class="hex" data-n="2" aria-hidden="true"></i>movimentado</span><span><i class="hex" data-n="3" aria-hidden="true"></i>cheio</span><span><i class="hex" data-n="f" aria-hidden="true"></i>fechado</span></p>
         </div>
         <div><h3>Hoje</h3><dl class="resumo" id="resumo" aria-live="polite"></dl></div>
       </div>
@@ -542,7 +542,7 @@ function montarHorarios() {
 
 /* ---------- que horas esta mais vazia? ---------- */
 const CURTO = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
-function nivel(v) { return v <= 35 ? "tranquilo" : v <= 55 ? "moderado" : v <= 80 ? "movimentado" : "cheio"; }
+function nivel(v) { return v <= 35 ? "pouco movimentado" : v <= 55 ? "moderado" : v <= 80 ? "movimentado" : "cheio"; }
 /* horas mais vazias: as de menor movimento, ate 4 pontos acima do minimo do dia */
 function vazias(dia) {
   const m = MOVIMENTO[dia], vals = Object.values(m), min = Math.min(...vals);
@@ -554,7 +554,7 @@ function faixas(horas) {
   horas.forEach((h) => { const u = out[out.length - 1]; if (u && u[1] === h) u[1] = h + 1; else out.push([h, h + 1]); });
   return out.map(([a, b]) => `${a}h às ${b}h`).join(" e ");
 }
-const NIVEIS = ["tranquilo", "moderado", "movimentado", "cheio"];
+const NIVEIS = ["pouco movimentado", "moderado", "movimentado", "cheio"];
 function montarMovimento() {
   const a = agoraBrasilia(), ordem = [1, 2, 3, 4, 5, 6, 0], horas = Array.from({ length: 17 }, (_, i) => i + 5);
   let html = horas.map((h, j) => `<span class="rot rot-hora" style="--h:${j}">${h}h</span>`).join("");
@@ -571,10 +571,10 @@ function montarMovimento() {
   const m = MOVIMENTO[a.dia], hs = Object.keys(m).map(Number), vz = vazias(a.dia);
   const max = Math.max(...Object.values(m)), pico = hs.filter((h) => m[h] === max);
   const noite = hs.filter((h) => h >= 17), melhorNoite = noite.length ? noite.reduce((x, y) => (m[y] < m[x] ? y : x)) : null;
-  $("#resumo").innerHTML = `<div><dt>Mais tranquila</dt><dd class="vazio-txt">${faixas(vz)}</dd></div>
-    ${melhorNoite !== null ? `<div><dt>Depois das 17h, a mais tranquila</dt><dd>${melhorNoite}h</dd></div>` : ""}
+  $("#resumo").innerHTML = `<div><dt>Menor movimento</dt><dd class="vazio-txt">${faixas(vz)}</dd></div>
+    ${melhorNoite !== null ? `<div><dt>Depois das 17h, menor movimento</dt><dd>${melhorNoite}h</dd></div>` : ""}
     <div><dt>Mais cheia</dt><dd>${pico.map((h) => `${h}h`).join(" e ")}</dd></div>`;
-  $("#colmeia").setAttribute("aria-label", `Movimento por hora na semana. Hoje, ${DIAS[a.dia].toLowerCase()}: mais tranquila ${faixas(vz)}, mais cheia ${pico.map((h) => `${h}h`).join(" e ")}.`);
+  $("#colmeia").setAttribute("aria-label", `Movimento por hora na semana. Hoje, ${DIAS[a.dia].toLowerCase()}: menor movimento ${faixas(vz)}, mais cheia ${pico.map((h) => `${h}h`).join(" e ")}.`);
 }
 function montarAgoraMov() {
   const a = agoraBrasilia(), v = (MOVIMENTO[a.dia] || {})[a.hora], el = $("#agora-mov");
@@ -640,7 +640,7 @@ function melhorHora(de, ate) {
 function montarExperimental() {
   const f = $("#form-exp"), mod = f.modalidade.value, per = PERIODOS.find((p) => p[0] === f.periodo.value);
   const m = melhorHora(per[2], per[3]);
-  $("#dica-hora").innerHTML = m ? `<span>${per[1]}, o horário mais tranquilo durante a semana costuma ser <strong>às ${m.h}h</strong>.</span>` : "";
+  $("#dica-hora").innerHTML = m ? `<span>${per[1]}, o horário de menor movimento durante a semana costuma ser <strong>às ${m.h}h</strong>.</span>` : "";
   const texto = `Olá! Quero marcar uma aula experimental de ${mod.toLowerCase()}, ${per[1].toLowerCase()}. Qual o melhor dia?`;
   $("#previa-exp").textContent = texto;
   $("#zap-exp").href = zap(texto);
