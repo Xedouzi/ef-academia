@@ -101,7 +101,7 @@
   @media (prefers-reduced-motion: reduce) { .btn { transition: none; } .btn:active { transform: none; } }
 
   /* ---------- topo ---------- */
-  .topo { background: var(--branco); border-bottom: 1px solid var(--linha); }
+  .topo { position: relative; z-index: 35; background: var(--branco); border-bottom: 1px solid var(--linha); }
   .topo-grade { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 1.5rem; min-height: 4.5rem; padding-block: .4rem; }
   .marca { display: inline-flex; align-items: center; text-decoration: none; line-height: 0; }
   .marca img { width: auto; height: 3.75rem; }   /* mesmo tamanho do topo da v3 */
@@ -110,7 +110,35 @@
   .menu a { color: var(--tinta); text-decoration: none; padding: .55rem 0; font-weight: 600; }
   .menu a:hover { color: var(--anil); text-decoration: underline; }
   .menu .menu-tel { color: var(--anil); font-weight: 800; }
-  @media (max-width: 900px) { .menu { display: none; } }
+  /* botao do menu (so no celular): 3 barrinhas inclinadas como o traco do F do logo; viram X ao abrir */
+  .menu-botao { display: none; }
+  @media (max-width: 900px) {
+    .menu-botao {
+      display: grid; align-content: center; justify-items: center; gap: 5px; width: 52px; height: 52px; margin-right: -8px; padding: 0;
+      border: 0; border-radius: var(--raio); background: none; cursor: pointer;
+    }
+    .menu-botao span { display: block; width: 28px; height: 4.5px; border-radius: 4px; background: var(--lima-escuro); transform: rotate(-9deg); transition: transform .25s cubic-bezier(.2, .7, .2, 1), opacity .2s, background-color .25s; }
+    .menu-botao:hover span { background: var(--lima-texto); }
+    .menu-aberto .menu-botao span { background: var(--anil); }
+    .menu-aberto .menu-botao span:nth-child(1) { transform: translateY(9.5px) rotate(45deg); }
+    .menu-aberto .menu-botao span:nth-child(2) { opacity: 0; }
+    .menu-aberto .menu-botao span:nth-child(3) { transform: translateY(-9.5px) rotate(-45deg); }
+    /* o menu desce por baixo do topo, por cima da pagina */
+    .menu {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      grid-template-columns: minmax(0, 1fr); gap: 0; padding: .5rem var(--margem) 1.25rem;
+      background: var(--branco); border-bottom: 1px solid var(--linha); box-shadow: 0 18px 30px -22px rgba(46, 27, 87, .55);
+    }
+    .menu-aberto .menu { display: grid; }
+    .menu a { display: flex; align-items: center; min-height: 52px; padding: .5rem 0; border-bottom: 1px solid var(--linha); font-size: 1.2rem; }
+    .menu a:hover { text-decoration: none; }
+    .menu .menu-tel { border-bottom: 0; margin-top: .4rem; }
+  }
+  @media (max-width: 900px) and (prefers-reduced-motion: no-preference) {
+    .menu-aberto .menu { animation: menu-desce .22s cubic-bezier(.2, .7, .2, 1); }
+  }
+  @keyframes menu-desce { from { opacity: 0; transform: translateY(-8px); } }
+  @media (prefers-reduced-motion: reduce) { .menu-botao span { transition: none; } }
 
   /* ---------- abertura: a foto da sala ocupa tudo ---------- */
   .abertura { position: relative; isolation: isolate; display: grid; grid-template-rows: 1fr auto; min-height: clamp(560px, 84vh, 800px); overflow: hidden; color: #fff; background: var(--anil-escuro); }
@@ -380,7 +408,8 @@
 <header class="topo">
   <div class="envoltorio topo-grade">
     <a class="marca" href="#"><img src="img/logo-topo.webp" width="380" height="226" alt="Academia Espaço Fitness, página inicial"></a>
-    <nav class="menu" aria-label="Principal">
+    <button class="menu-botao" type="button" id="menu-botao" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    <nav class="menu" id="menu" aria-label="Principal">
       <a href="#movimento">Melhores horários</a>
       <a href="#modalidades">Modalidades</a>
       <a href="#aulas">Aulas</a>
@@ -836,6 +865,22 @@ mostrarFlutuante();
 const experimental = zap("Olá! Quero marcar uma aula experimental na Espaço Fitness. Qual o melhor dia?");
 ["#zap-topo", "#zap-barra"].forEach((s) => { $(s).href = experimental; });
 $("#zap-contato").href = zap("Olá! Quero saber mais sobre a Espaço Fitness.");
+
+/* ---------- menu do celular ---------- */
+const topo = document.querySelector(".topo"), menuBotao = $("#menu-botao");
+function menu(abrir) {
+  topo.classList.toggle("menu-aberto", abrir);
+  menuBotao.setAttribute("aria-expanded", String(abrir));
+  menuBotao.setAttribute("aria-label", abrir ? "Fechar menu" : "Abrir menu");
+}
+menuBotao.addEventListener("click", () => menu(!topo.classList.contains("menu-aberto")));
+$("#menu").addEventListener("click", (e) => { if (e.target.closest("a")) menu(false); });
+document.addEventListener("click", (e) => { if (!topo.contains(e.target)) menu(false); });
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && topo.classList.contains("menu-aberto")) { menu(false); menuBotao.focus(); }
+});
+/* girou o celular ou abriu a janela: no computador o menu e a linha de sempre */
+matchMedia("(min-width: 901px)").addEventListener("change", (m) => { if (m.matches) menu(false); });
 
 /* ---------- fotos da estrutura: clicar amplia ---------- */
 const fotos = [...document.querySelectorAll(".mosaico .ampliar")];
